@@ -22,7 +22,11 @@ Route::get('/tution',[
 //cashCalculas str
 Route::get('/cash-calculas-from',[
     cashCalculasController::class,    //cashCalculas main page
-    'cashCalculas'
-])->name('cashCalculas');
+    'cashCalculasView'
+])->name('cashCalculasView');
 
+Route::get('/get-report',[
+    cashCalculasController::class,    //reportList page
+    'reportListView'
+])->name('reportListView');
 //cashCalculas end

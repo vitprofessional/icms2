@@ -13,13 +13,18 @@
                         <label for="accNumber" class="form-label ">Amount</label>
                         <input type="text" class="form-control form-control-sm" id="accNumber" name="accNumber" placeholder="">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="userName" class="form-label">Type Of Transaction</label>
                         <select class="form-select form-select-sm" aria-label="Default select example">
                             <option selected>Open this select menu</option>
                             <option value="Debit">Debit</option>
                             <option value="Crtedit">Crtedit</option>
                         </select>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="date" class="form-label ">Date</label>
+                        <input type="date" class="form-control form-control-sm" id="date" name="date" placeholder="">
                     </div>
                     <div class=" col-6 mx-auto d-grid gap-2 mt-5">
                         <button class="btn btn-primary btn-color btn-sm" type="submit">Submit</button>
