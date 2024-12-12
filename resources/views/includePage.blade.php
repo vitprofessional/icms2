@@ -279,10 +279,10 @@
                                 <div class="collapse menu-dropdown" id="sidebarLayouts">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="layouts-horizontal.html" target="_blank" class="nav-link" data-key="t-horizontal">Debit/Credit</a>
+                                            <a href="{{route('cashCalculas')}}" class="nav-link" data-key="t-horizontal">Debit/Credit</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Get Report</a>
+                                            <a href="layouts-detached.html"  class="nav-link" data-key="t-detached">Get Report</a>
                                         </li>
                                     </ul>
                                 </div>
