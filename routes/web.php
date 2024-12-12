@@ -29,4 +29,10 @@ Route::get('/get-report',[
     cashCalculasController::class,    //reportList page
     'reportListView'
 ])->name('reportListView');
+
+
+Route::post('/save-cash-calculas',[
+    cashCalculasController::class,    //saveCashCalculas brackhand
+    'saveCashCalculas'
+])->name('saveCashCalculas');
 //cashCalculas end

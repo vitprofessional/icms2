@@ -3,19 +3,30 @@
     <div class="row ">
         <div class="col-6 mx-auto  ">
             <div class="card shadow text-bg-light p-2 border-0 ">
-                <form class="card-body">
+@if(session()->has('error'))
+    <div class="alert alert-danger">
+        {{session()->get('error')}}
+    </div>
+@endif
+@if(session()->has('success'))
+    <div class="alert alert-success">
+        {{session()->get('success')}}
+    </div>
+@endif
+                <form method="POST" class="card-body form" action="{{route('saveCashCalculas')}}">
+                    @csrf
                     <div class="mb-2">
-                        <label for="accName" class="form-label ">Source</label>
-                        <input type="text" class="form-control form-control-sm" id="accName" name="accName" placeholder="">
+                        <label for="source" class="form-label ">Source</label>
+                        <input type="text" class="form-control form-control-sm" id="source" name="source" placeholder="" required>
                         </select>
                     </div>
                     <div class="mb-2">
-                        <label for="accNumber" class="form-label ">Amount</label>
-                        <input type="text" class="form-control form-control-sm" id="accNumber" name="accNumber" placeholder="">
+                        <label for="amount" class="form-label ">Amount</label>
+                        <input type="number" class="form-control form-control-sm" id="amount" name="amount" placeholder="" required>
                     </div>
                     <div class="mb-2">
-                        <label for="userName" class="form-label">Type Of Transaction</label>
-                        <select class="form-select form-select-sm" aria-label="Default select example">
+                        <label for="transaction" class="form-label">Type Of Transaction</label>
+                        <select class="form-select form-select-sm" id="transaction" name="transaction" aria-label="Default select example" required>
                             <option selected>Open this select menu</option>
                             <option value="Debit">Debit</option>
                             <option value="Crtedit">Crtedit</option>
