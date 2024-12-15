@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontEnd;
 use App\Http\Controllers\AdminPanel;
 use App\Http\Controllers\cashCalculasController;
+use App\Http\Controllers\admissionController;
 
 Route::get('/', function () {
     return view('admin.home');
