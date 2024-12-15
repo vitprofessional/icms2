@@ -10,12 +10,8 @@ class cashCalculasController extends Controller
     public function cashCalculasView(){
         return view('cashCalculas.cashCalculasPage');
     }
-
-    public function reportListView(){
-        return view('cashCalculas.reportList');
-    }
-
-    public function saveCashCalculas(Request $requ){
+//cash data send to database
+    public function saveCashCalculas(Request $requ){ 
         $cash = new cashManage();
 
         $cash->source       = $requ->source;
@@ -29,6 +25,17 @@ class cashCalculasController extends Controller
             return back()->with('error','Data entry failed');
         endif;
 
+    }
+ //report list
+    public function reportListView(){ 
+        $calculasList = cashManage::all();
+        return view('cashCalculas.reportList',['cashManageData'=> $calculasList]);
+    }
+
+    // report single page
+    public function singleView($id){   
+        $calculasData = cashManage::find($id);
+        return view('cashCalculas.viewCashcalculas',['singleData' => $calculasData]);
     }
 
 }

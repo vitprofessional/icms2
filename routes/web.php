@@ -30,6 +30,11 @@ Route::get('/get-report',[
     'reportListView'
 ])->name('reportListView');
 
+Route::get('/single-report',[
+    cashCalculasController::class,    // report single page
+    'singleView'
+])->name('singleView');
+
 
 Route::post('/save-cash-calculas',[
     cashCalculasController::class,    //saveCashCalculas brackhand

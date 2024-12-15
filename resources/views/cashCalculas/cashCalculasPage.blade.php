@@ -35,7 +35,7 @@
                     
                     <div class="mb-2">
                         <label for="date" class="form-label ">Date</label>
-                        <input type="date" class="form-control form-control-sm" id="date" name="date" placeholder="">
+                        <input type="date" class="form-control form-control-sm" id="date" name="date" placeholder="" required>
                     </div>
                     <div class=" col-6 mx-auto d-grid gap-2 mt-5">
                         <button class="btn btn-primary btn-color btn-sm" type="submit">Submit</button>

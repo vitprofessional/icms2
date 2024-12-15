@@ -1,7 +1,7 @@
 @extends('includePage') 
 @section('body')
     <div class="row   ">
-        <div class="card card-body  border border-success">
+        <div class="card card-body  border  ">
             <table class=" table table-striped table-hover text-center shadow-lg p-3 rounded" >
                 <thead class="table-info">
                     <tr>
@@ -13,28 +13,25 @@
                     </tr>
                 </thead>
                 <tbody class="">
+                    @if(!empty($cashManageData) && count($cashManageData)>0)
+                    @foreach($cashManageData    as $d)
                     <tr>
-                        <td>10.10.2001</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>{{$d    ->date}}</td>
+                        <td>{{$d    ->source}}</td>
+                        <td>{{$d    ->amount}}</td>
+                        <td>{{$d   ->transaction}}</td>
                         <td>
-                            <a href=""><i class="fa-solid fa-eye mx-2" style="color:rgb(193, 11, 20);"></i></a>
-                            <a href=""><i class="fa-solid fa-pen-to-square mx-2" style="color: #c10b26;"></i></a>
+                            <a href="{{route('singleView')}}"><i class="fa-solid fa-eye mx-2" style="color:rgb(35 170 211);"></i></a>
+                            <a href=""><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
                             <a href=""><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
                         </td>
                     </tr>
+                    @endforeach
+                    @else
                     <tr>
-                        <td>10.10.2001</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <a href=""><i class="fa-solid fa-eye mx-2" style="color:rgb(193, 11, 20);"></i></a>
-                            <a href=""><i class="fa-solid fa-pen-to-square mx-2" style="color: #c10b26;"></i></a>
-                            <a href=""><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
-                        </td>
+                        <td colspan="5"> Do not entry any data</td>
                     </tr>
+                    @endif
                 </tbody>
             </table>
         </div>

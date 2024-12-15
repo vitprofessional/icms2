@@ -3,7 +3,7 @@
     <!-- Mirrored from themesbrand.com/velzon/html/default/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Oct 2024 18:08:30 GMT -->
     <head>
         <meta charset="utf-8" />
-        <title>Dashboard | @yield('title')</title>
+        <title>ICMS | @yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
