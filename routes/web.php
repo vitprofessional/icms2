@@ -31,7 +31,7 @@ Route::get('/get-report',[
     'reportListView'
 ])->name('reportListView');
 
-Route::get('/single-report',[
+Route::get('/single-report/{id}',[
     cashCalculasController::class,    // report single page
     'singleView'
 ])->name('singleView');
