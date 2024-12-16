@@ -16,10 +16,10 @@
                     @if(!empty($cashManageData) && count($cashManageData)>0)
                     @foreach($cashManageData    as $d)
                     <tr>
-                        <td>{{$d    ->date}}</td>
-                        <td>{{$d    ->source}}</td>
-                        <td>{{$d    ->amount}}</td>
-                        <td>{{$d   ->transaction}}</td>
+                        <td>{{$d->date}}</td>
+                        <td>{{$d->source}}</td>
+                        <td>{{$d->amount}}</td>
+                        <td>{{$d->transaction}}</td>
                         <td>
                             <a href="{{route('singleView',['id'=>$d->id])}}"><i class="fa-solid fa-eye mx-2" style="color:rgb(35 170 211);"></i></a>
                             <a href=""><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
