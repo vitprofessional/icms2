@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="row mb-4">
-        <h4      class="text-uppercase">New admission entry</h4     >
+        <h4 class="text-uppercase">New admission entry</h4     >
     </div>
     <form class="new-added-form" action="#" method="#" enctype="multipart/form-data">
         @csrf

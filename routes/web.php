@@ -41,4 +41,19 @@ Route::post('/save-cash-calculas',[
     cashCalculasController::class,    //saveCashCalculas brackhand
     'saveCashCalculas'
 ])->name('saveCashCalculas');
+
+Route::get('/edit-cash-calculas/{id}',[
+    cashCalculasController::class,     // edit calculas 
+    'editCashCalculas'
+])->name('editCashCalculas');
+
+Route::post('/update-cash-calculas',[
+    cashCalculasController::class,   //update calculas
+    'updateCashCalculas'
+])->name('updateCashCalculas');
+
+Route::get('/delete-calculas-data/{id}',[
+    cashCalculasController::class,
+    'dltCalculasData'
+])->name('dltCalculasData');
 //cashCalculas end

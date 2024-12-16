@@ -38,4 +38,36 @@ class cashCalculasController extends Controller
         return view('cashCalculas.viewCashcalculas',['singleData' => $calculasData]);
     }
 
+    //edit cash calculas
+    public function editCashCalculas($id){
+        $calculasData = cashManage::find($id);
+        return view('cashCalculas.editCashcalculas',['editData' => $calculasData]);
+    }
+
+    //update cash caqlculas
+     public function updateCashCalculas(Request $requ){
+        $upData = cashManage::find($requ->calculasId);
+
+        $upData->source  = $requ->source;
+        $upData->amount  = $requ->amount;
+        $upData->transaction  = $requ->transaction;
+        
+        if($upData->save()):
+            return redirect(route('reportListView'))->with("success");
+        else:
+            return back()->with("error");
+        endif;
+     }
+    //delelte calculasdata
+    public function dltCalculasData($id){
+        $dltData = cashManage::find($id);
+
+        if($dltData->delete()):
+            return back()->with('success','data entry successfully');
+        else:
+            return back()->with('error','data deletion failed');
+        endif;
+    
+     }
+
 }

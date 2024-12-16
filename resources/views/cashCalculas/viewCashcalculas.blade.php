@@ -1,12 +1,15 @@
 @extends('includePage') 
 @section('body')
-    <div class="row   ">
+    <div class="row col-md-6 mx-auto">
         <div class="card card-body  border  ">
-            <table class=" table table-striped table-hover text-center shadow-lg p-3 rounded" >
-                <tbody class="table-info">
+            
+        <div class="mb-3 text-center">
+         <u class="h4">Calculas View</u>
+        </div>
+            <table class=" table table-striped table-hover hadow-lg p-3 rounded" >
+                <tbody class="">
 
                     <tr>
-                        <th type="hidden" name="singleId" value="{{$singleData->id}}">{{$singleData->id}}</th>
                         <th scope="col">Date</th>
                         <td>{{$singleData->date}}</td>
                     </tr>
