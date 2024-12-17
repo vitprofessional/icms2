@@ -10,11 +10,17 @@ use App\Http\Controllers\individualController;
 Route::get('/', function () {
     return view('admin.home');
 });
-
+//admission
 Route::get('/new-admission',[
     FrontEnd::class,
     'newAdmission'
 ])->name('newAdmission');
+ 
+Route::get('/student-list',[
+    FrontEnd::class,
+    'studentList'
+])->name('studentList');
+//admission
 
 Route::get('/tution',[
     FrontEnd::class,

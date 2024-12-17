@@ -23,6 +23,12 @@ class FrontEnd extends Controller
         return view('admission.newAdmission');
     }
 
+    public function studentList(){
+        return view('admission.studentList');
+    }
+
+
+
     public function logout(){
         Session()->invalidate();
         Session()->regenerateToken();

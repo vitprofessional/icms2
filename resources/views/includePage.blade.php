@@ -250,7 +250,7 @@
                                             <a href="{{route('newAdmission')}}" class="nav-link" data-key="t-analytics">New Addmission </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link" data-key="t-crm">Student List</a>
+                                            <a href="{{route('studentList')}}" class="nav-link" data-key="t-crm">Student List</a>
                                         </li>
                                     </ul>
                                 </div>
