@@ -15,8 +15,24 @@ return new class extends Migration
             $table->id();
             $table->string('fullName')->nullable();
             $table->string('sureName')->nullable();
-            $table->string('transaction')->nullable();
-            $table->string('date')->nullable();
+            $table->string('father')->nullable();
+            $table->string('mother')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('blGroup')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('address')->nullable();
+            $table->string('mail')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('sessName')->nullable();
+            $table->string('className')->nullable();
+            $table->string('sectionName')->nullable();
+            $table->string('rollNumber')->nullable();
+            $table->string('gurdianName')->nullable();
+            $table->string('gurdianMobile')->nullable();
+            $table->string('relationGurdian')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

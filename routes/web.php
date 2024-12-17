@@ -12,14 +12,19 @@ Route::get('/', function () {
 });
 //admission
 Route::get('/new-admission',[
-    FrontEnd::class,
+    admissionController::class,
     'newAdmission'
 ])->name('newAdmission');
  
 Route::get('/student-list',[
-    FrontEnd::class,
+    admissionController::class,
     'studentList'
 ])->name('studentList');
+
+Route::post('/save/student',[
+    admissionController::class,
+    'saveAdmission'
+])->name('saveAdmission');
 //admission
 
 Route::get('/tution',[

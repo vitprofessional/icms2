@@ -19,10 +19,10 @@
                  </tr>
                 </thead>
                 <tbody class="">
-                    <!-- @if(!empty($cashManageData) && count($cashManageData)>0)
-                    @foreach($cashManageData    as $d) -->
+                @if(!empty($cashManageData) && count($cashManageData)>0)
+                    @foreach($cashManageData    as $d)
                     <tr>
-                        <td></td>
+                        <td>fdsf</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -37,12 +37,12 @@
                             <a onclick="confirm('are you sure')" href=""><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
                         </td>
                     </tr>
-                    <!-- @endforeach
+                    @endforeach
                     @else
                     <tr>
-                        <td colspan="5"> Do not entry any data</td>
+                        <td colspan="10"> Do not entry any data</td>
                     </tr>
-                    @endif -->
+                    @endif
                 </tbody>
             </table>
     </div>

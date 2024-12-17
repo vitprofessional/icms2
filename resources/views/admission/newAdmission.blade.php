@@ -5,12 +5,17 @@
     <div class="row mb-4">
         <h4 class="text-uppercase">New admission entry</h4>
     </div>
-    
-    <form class="new-added-form" action="#" method="#" enctype="multipart/form-data">
+    @if(Session::has('success'))
+    <div class="alert alert-success">{{ Session::get('success') }}</div>
+    @endif
+    @if(Session::has('error'))
+    <div class="alert alert-danger">{{ Session::get('error') }}</div>
+    @endif
+    <form class="new-added-form" action="{{ route('saveAdmission') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row mb-2">
-        <h5 class="fw-semibold">Personal Information</h5>
-    </div>
+            <h5 class="fw-semibold">Personal Information</h5>
+        </div>
         <div class="row align-items-center">
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="fullName" class="form-label ">Full Name</label>
@@ -26,11 +31,11 @@
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="mothername"  class="form-label ">Mother's Name </label>
-                <input type="text" name="" placeholder="Enter Mothers name" class="form-control" id="mothername" required>
+                <input type="text" name="motherName" placeholder="Enter Mothers name" class="form-control" id="mothername" required>
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="gender" class="form-lavel">Gender </label>
-                <select class="form-select" aria-label="Default select example"required>
+                <select class="form-select" name="gender" aria-label="Default select example"required>
                 <option selected>Gender select</option> 
                 <option value="1">Male</option>
                 <option value="2">Female</option>
@@ -39,12 +44,12 @@
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="birthDate" class="form-lavel">Date Of Birth </label>
-                <input type="date" name="" placeholder="dd/mm/yyyy" class="form-control air-datepicker"
+                <input type="date" name="dob" placeholder="dd/mm/yyyy" class="form-control air-datepicker"
                     data-position='bottom right' id="birthDate" class="form-confrol" required>
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="bloodgroup" class="form-lavel">Blood group </label>
-                <select class="form-select" id="bloodgroup" aria-label="Default select example"required>
+                <select class="form-select" name="blGroup" id="bloodgroup" aria-label="Default select example"required>
                     <option value="">Select </option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -58,7 +63,7 @@
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="regligion" class="form-lavel">regligion</label>
-                <select class="form-select" id="regligion" aria-label="Default select example"required>
+                <select class="form-select" name="religion" id="regligion" aria-label="Default select example"required>
                     <option value="">Select </option>
                     <option value="Islam">Islam</option>
                     <option value="Hindu">Hindu</option>
@@ -69,21 +74,21 @@
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="address" class="form-lavel">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="Student full address" name="">
+                <input type="text" class="form-control" id="address" placeholder="Student full address" name="address">
             </div>
         
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="email" class="form-lavel">E-Mail</label>
-                <input type="email" name="" id="email" placeholder="Enter student email" class="form-control">
+                <input type="email" name="mail" id="email" placeholder="Enter student email" class="form-control">
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="phone" class="form-lavel">Phone</label>
-                <input type="text" name="" placeholder="Enter gurdian mobile number" id="phone" class="form-control" required>
+                <input type="text" name="phone" placeholder="Enter gurdian mobile number" id="phone" class="form-control" required>
             </div>
             
             <div class="col-xl-3 col-lg-6 col-12 form-group mg-t-30">
                 <label for="image" class="text-dark-medium">Avatar (150px X 150px)</label>
-                <input type="file" name=""id="image"class="form-control-file">
+                <input type="file" name="avatar" id="image"class="form-control-file">
             </div>
         </div>
         <div class="row mb-2 mt-5">
@@ -92,26 +97,26 @@
         <div class="row ">
         <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="session" class="form-lavel">Session </label>
-                <select name="" class="form-control" required>
+                <select name="sessName" class="form-control">
                     <option value="">Select </option>
                 </select>
                     
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="class" class="form-lavel">Class </label>
-                <select  name="" class="form-control" id="class" required>
+                <select  name="className" class="form-control" id="class">
                     <option value="">Select </option>
                 </select>
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="section">Section/Group </label>
-                <select class="form-control" name="" id="section" required>
+                <select class="form-control" name="sectionName" id="section">
                     <option value="">Select </option>
                 </select>
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="roll" class="form-lavel">Roll</label>
-                <input type="text"  name="" placeholder="Enter student class roll" id="roll" class="form-control" required>
+                <input type="text"  name="rollNumber" placeholder="Enter student class roll" id="roll" class="form-control" required>
             </div>
         </div>
 
@@ -122,24 +127,24 @@
         <div class="row align-items-center">
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="G-name" class="form-label ">Guardian Name</label>
-                <input type="text" class="form-control " id="G-name" name="" placeholder="Enter Guardian name" required>
+                <input type="text" class="form-control " id="G-name" name="gurdian" placeholder="Enter Guardian name" required>
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="G-phone" class="form-lavel">Mobile No</label>
-                <input type="text" name="" placeholder="Enter gurdian mobile number" id="G-phone" class="form-control" required>
+                <input type="text" name="gurdianPhone" placeholder="Enter gurdian mobile number" id="G-phone" class="form-control" required>
             </div>
 
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="relation" class="form-lavel">Relation</label>
-                <select class="form-select" id="relation" aria-label="Default select example"required>
+                <select class="form-select" id="relation" aria-label="Default select example" name="relationWithStd">
                     <option value="">Select </option>
-                    <option value="">Father</option>
-                    <option value="">Mother</option>
-                    <option value="">Brother</option>
-                    <option value="">Sister</option>
-                    <option value="">Uncle</option>
-                    <option value="">Aunty</option>
-                    <option value="">Others</option>
+                    <option value="Father">Father</option>
+                    <option value="Mother">Mother</option>
+                    <option value="Brother">Brother</option>
+                    <option value="Sister">Sister</option>
+                    <option value="Uncle">Uncle</option>
+                    <option value="Aunty">Aunty</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
         </div>

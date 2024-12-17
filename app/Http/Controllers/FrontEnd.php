@@ -19,15 +19,6 @@ class FrontEnd extends Controller
         return view('tuition.tuitionFeesFrom');
     }
 
-    public function newAdmission(){
-        return view('admission.newAdmission');
-    }
-
-    public function studentList(){
-        return view('admission.studentList');
-    }
-
-
 
     public function logout(){
         Session()->invalidate();
