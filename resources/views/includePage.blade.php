@@ -287,6 +287,21 @@
                                     </ul>
                                 </div>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu-link" href="{{route('sessionForm')}}">
+                                <i class="fa-regular fa-bars"></i> <span data-key="t-layouts">Add Session</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu-link" href="{{route('classForm')}}">
+                                <i class="fa-regular fa-bars"></i> <span data-key="t-layouts">Add Class</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu-link" href="{{route('sectionForm')}}">
+                                <i class="fa-regular fa-bars"></i> <span data-key="t-layouts">Add Section</span>
+                                </a>
+                            </li>
                             <!-- end Dashboard Menu -->
 
                             <li class="nav-item">

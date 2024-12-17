@@ -5,6 +5,7 @@ use App\Http\Controllers\FrontEnd;
 use App\Http\Controllers\AdminPanel;
 use App\Http\Controllers\cashCalculasController;
 use App\Http\Controllers\admissionController;
+use App\Http\Controllers\individualController;
 
 Route::get('/', function () {
     return view('admin.home');
@@ -57,3 +58,27 @@ Route::get('/delete-calculas-data/{id}',[
     'dltCalculasData'
 ])->name('dltCalculasData');
 //cashCalculas end
+
+//individual part str
+Route::get('/add-session',[
+ individualController::class, //add session
+ 'sessionForm'
+])->name('sessionForm');
+
+Route::post('/save-session',[
+    individualController::class, //add session
+    'saveSession'
+   ])->name('saveSession');
+
+
+Route::get('/add-class',[
+    individualController::class, //add class
+    'classForm'
+   ])->name('classForm');
+
+
+   Route::get('/add-section',[
+    individualController::class, //add section
+    'sectionForm'
+   ])->name('sectionForm');
+//individual part end
