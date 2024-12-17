@@ -1,9 +1,7 @@
 @extends('includePage')
 @section('body')
-@extends('includePage') 
-@section('body')
     <div class="row mx-auto ">
-                <!-- @if(session()->has('error'))
+                @if(session()->has('error'))
                     <div class="alert alert-danger">
                         {{session()->get('error')}}
                     </div>
@@ -12,7 +10,7 @@
                     <div class="alert alert-success">
                         {{session()->get('success')}}
                     </div>
-                @endif -->
+                @endif
     <form method="POST" class="card-body form" action="">
         @csrf
         <div class="row mb-4">
@@ -60,11 +58,10 @@
             </div>
             <div class="  mx-auto  gap-2 mt-4">
                 <button class="btn btn-primary btn-color btn-sm" type="submit">Submit</button>
-                <button class="btn btn-danger btn-color btn-sm" type="submit">Reset</button>
+                <button class="btn btn-danger btn-color btn-sm" type="reset">Reset</button>
             </div>
         </div>
     </form>
 </div>
 
-@endsection
 @endsection

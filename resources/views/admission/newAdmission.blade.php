@@ -151,7 +151,7 @@
             
         <div class=" col-12 mx-auto mb-5  gap-2 mt-5">
         <button class="btn btn-primary btn-color btn-sm" type="submit">Submit</button>
-         <button class="btn btn-danger btn-color btn-sm" type="submit">Reset</button>
+         <button class="btn btn-danger btn-color btn-sm" type="reset">Reset</button>
                     </div>
         
     </form>
