@@ -1,7 +1,5 @@
 @extends('includePage')
 @section('body')
-@extends('includePage') 
-@section('body')
     <div class="row ">
         <div class="col-6 mx-auto  ">
             <div class="card shadow  p-2 border-0 ">
@@ -15,7 +13,7 @@
                     {{session()->get('success')}}
                 </div>
             @endif
-                <form method="POST" class="card-body form" action="">
+                <form method="POST" class="card-body form" action="{{route('saveSection')}}">
                     @csrf
                     <div class="mb-2">
                         <label for="section" class="form-label ">Section/Group</label>
@@ -24,13 +22,11 @@
                     </div>
                     <div class=" mx-auto gap-2 mt-5">
                         <button class="btn btn-primary btn-color btn-sm" type="submit">Submit</button>
-                        <button class="btn btn-danger btn-color btn-sm" type="submit">Reset</button>
+                        <button class="btn btn-danger btn-color btn-sm" type="reset">Reset</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-@endsection
 @endsection

@@ -26,11 +26,42 @@ class individualController extends Controller
         endif;
         
     }
+    //add class
     public function classForm(){
         return view('individualPart.classForm');
     }
 
+    //save class 
+    public function saveClass(Request $requ){
+        $savedata = new classManage();
+        
+        $savedata -> className = $requ->className;
+
+        if($savedata->save()):
+            return back()->with('success','Data entry successfully');
+        else:
+            return back()->with('error','Data entry failed');
+        endif;
+        
+    }
+    
+    //add section
     public function sectionForm(){
         return view('individualPart.sectionForm');
+    }
+
+
+    //save section 
+    public function saveSection(Request $requ){
+        $savedata = new sectionManage();
+        
+        $savedata -> section = $requ->section;
+
+        if($savedata->save()):
+            return back()->with('success','Data entry successfully');
+        else:
+            return back()->with('error','Data entry failed');
+        endif;
+        
     }
 }

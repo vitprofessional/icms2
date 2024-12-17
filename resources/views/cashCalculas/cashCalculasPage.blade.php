@@ -34,6 +34,7 @@
                     </div>
                     <div class=" col-6 mx-auto d-grid gap-2 mt-5">
                         <button class="btn btn-primary btn-color btn-sm" type="submit">Submit</button>
+                        <button class="btn btn-danger btn-color btn-sm" type="reset">Reset</button>
                     </div>
                 </form>
             </div>

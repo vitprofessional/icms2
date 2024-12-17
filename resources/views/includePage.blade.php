@@ -288,18 +288,18 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link menu-link" href="{{route('sessionForm')}}">
+                                <a class="nav-link menu-link" href="{{route('sessionForm')}}" role="button">
                                 <i class="fa-regular fa-bars"></i> <span data-key="t-layouts">Add Session</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link menu-link" href="{{route('classForm')}}">
-                                <i class="fa-regular fa-bars"></i> <span data-key="t-layouts">Add Class</span>
+                                <a class="nav-link menu-link" href="{{route('classForm')}}" role="button">
+                                <i class="fa-regular fa-bars"></i> <span data-key="t-class">Add Class</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link menu-link" href="{{route('sectionForm')}}">
-                                <i class="fa-regular fa-bars"></i> <span data-key="t-layouts">Add Section</span>
+                                <a class="nav-link menu-link" href="{{route('sectionForm')}}" role="button">
+                                <i class="fa-regular fa-bars"></i> <span data-key="t-section">Add Section</span>
                                 </a>
                             </li>
                             <!-- end Dashboard Menu -->

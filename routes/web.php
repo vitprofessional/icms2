@@ -66,7 +66,7 @@ Route::get('/add-session',[
 ])->name('sessionForm');
 
 Route::post('/save-session',[
-    individualController::class, //add session
+    individualController::class, //save session
     'saveSession'
    ])->name('saveSession');
 
@@ -76,9 +76,19 @@ Route::get('/add-class',[
     'classForm'
    ])->name('classForm');
 
+   Route::post('/save-class',[
+    individualController::class, //save class
+    'saveClass'
+   ])->name('saveClass');
+
 
    Route::get('/add-section',[
     individualController::class, //add section
     'sectionForm'
    ])->name('sectionForm');
+
+   Route::post('/save-section',[
+    individualController::class, //add section
+    'saveSection'
+   ])->name('saveSection');
 //individual part end

@@ -26,7 +26,7 @@
                     @if(!empty($cashManageData) && count($cashManageData)>0)
                     @foreach($cashManageData    as $d)
                     <tr>
-                        <td>{{$d->date}}</td>
+                        <td>{{$d->created_at->format('Y-m-d')}}</td>
                         <td>{{$d->source}}</td>
                         <td>{{$d->amount}}</td>
                         <td>{{$d->transaction}}</td>
@@ -44,6 +44,9 @@
                     @endif
                 </tbody>
             </table>
+            <div class="mt-3">
+                <a href="{{route('cashCalculasView')}}"class="btn btn-success btn-sm">Back</a>
+            </div>
         </div>
     </div>
 </div>

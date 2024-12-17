@@ -8,10 +8,9 @@
         </div>
             <table class=" table table-striped table-hover hadow-lg p-3 rounded" >
                 <tbody class="">
-
                     <tr>
                         <th scope="col">Date</th>
-                        <td>{{$singleData->date}}</td>
+                        <td>{{$singleData->created_at->format('Y-m-d')}}</td>
                     </tr>
                     <tr>
                         <th scope="col">Source</th>
@@ -27,6 +26,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="mt-3">
+                <a href="{{route('reportListView')}}"class="btn btn-success btn-color btn-sm">Back</a>
+            </div>
         </div>
     </div>
 </div>

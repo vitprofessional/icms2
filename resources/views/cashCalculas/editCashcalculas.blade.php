@@ -33,6 +33,9 @@
                             <option value="Crtedit">Crtedit</option>
                         </select>
                     </div>
+            <div class="mt-3">
+                <a href="{{route('reportListView')}}"class="btn btn-success btn-sm">Back</a>
+            </div>
                     <div class=" col-6 mx-auto d-grid gap-2 mt-5">
                         <button class="btn btn-primary btn-color btn-sm" type="submit">Update</button>
                     </div>
