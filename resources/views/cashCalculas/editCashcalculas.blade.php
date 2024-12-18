@@ -11,7 +11,7 @@
 @if(session()->has('success'))
     <div class="alert alert-success">
         {{session()->get('success')}}
-    </div>
+    </div>   
 @endif
                 <form method="POST" class="card-body form" action="{{route('updateCashCalculas')}}">
                     @csrf

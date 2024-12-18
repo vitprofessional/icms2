@@ -90,7 +90,7 @@ Route::get('/delete-calculas-data/{id}',[
 //cashCalculas end
 
 //Tuition str
-Route::get('/add-tution-free',[
+Route::post('/add-tution-free',[
     tuitionController::class,   //add tuition free
     'tutionFee'
 ])->name('tutionFee');
