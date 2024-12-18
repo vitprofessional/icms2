@@ -15,14 +15,20 @@ class individualController extends Controller
     
     //save session 
     public function saveSession(Request $requ){
-        $savedata = new sessionManage();
-        
-        $savedata -> session = $requ->session;
+        $chkData = sessionManage::where(['session'=>$requ->session])->get();
 
-        if($savedata->save()):
-            return back()->with('success','Data entry successfully');
-        else:
+        if(!empty($chkData) && count($chkData)>0):
             return back()->with('error','Data entry failed');
+        else:
+            $savedata = new sessionManage();
+            
+            $savedata -> session = $requ->session;
+
+            if($savedata->save()):
+                return back()->with('success','Data saved successfully');
+            else:
+                return back()->with('error','An error ocoured! please try later');
+            endif;
         endif;
         
     }
@@ -33,14 +39,21 @@ class individualController extends Controller
 
     //save class 
     public function saveClass(Request $requ){
-        $savedata = new classManage();
-        
-        $savedata -> className = $requ->className;
 
-        if($savedata->save()):
-            return back()->with('success','Data entry successfully');
-        else:
+        $chkData = classManage::where(['className'=>$requ->className])->get();
+
+        if(!empty($chkData) && count($chkData)>0):
             return back()->with('error','Data entry failed');
+        else:
+            $savedata = new classManage();
+            
+            $savedata -> className = $requ->className;
+
+            if($savedata->save()):
+                return back()->with('success','Data saved successfully');
+            else:
+                return back()->with('error','An error ocoured! please try later');
+            endif;
         endif;
         
     }
@@ -53,14 +66,20 @@ class individualController extends Controller
 
     //save section 
     public function saveSection(Request $requ){
-        $savedata = new sectionManage();
-        
-        $savedata -> section = $requ->section;
+       $chkData = sectionManage::where(['section'=>$requ->section])->get();
 
-        if($savedata->save()):
-            return back()->with('success','Data entry successfully');
-        else:
+        if(!empty($chkData) && count($chkData)>0):
             return back()->with('error','Data entry failed');
+        else:
+            $savedata = new sectionManage();
+            
+            $savedata -> section = $requ->section;
+
+            if($savedata->save()):
+                return back()->with('success','Data saved successfully');
+            else:
+                return back()->with('error','An error ocoured! please try later');
+            endif;
         endif;
         
     }

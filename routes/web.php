@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminPanel;
 use App\Http\Controllers\cashCalculasController;
 use App\Http\Controllers\admissionController;
 use App\Http\Controllers\individualController;
+use App\Http\Controllers\tuitionController;
 
 Route::get('/', function () {
     return view('admin.home');
@@ -27,10 +28,7 @@ Route::post('/save/student',[
 ])->name('saveAdmission');
 //admission
 
-Route::get('/tution',[
-    FrontEnd::class,
-    'tutionFee'
-])->name('tutionFee');
+
 
 //cashCalculas str
 Route::get('/cash-calculas-from',[
@@ -69,6 +67,18 @@ Route::get('/delete-calculas-data/{id}',[
     'dltCalculasData'
 ])->name('dltCalculasData');
 //cashCalculas end
+
+//Tuition str
+Route::get('/add-tution-free',[
+    tuitionController::class,   //add tuition free
+    'tutionFee'
+])->name('tutionFee');
+
+Route::get('/tution-free-list',[
+    tuitionController::class,   // tuition free list
+    'tutionFeeList'
+])->name('tutionFeeList');
+//Tuition end
 
 //individual part str
 Route::get('/add-session',[

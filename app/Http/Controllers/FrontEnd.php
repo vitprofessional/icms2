@@ -15,9 +15,7 @@ class FrontEnd extends Controller
         return view('admin.home');
     }
 
-    public function tutionFee(){
-        return view('tuition.tuitionFeesFrom');
-    }
+    
 
 
     public function logout(){

@@ -266,7 +266,7 @@
                                             <a href="{{route('tutionFee')}}" class="nav-link" data-key="t-chat"> Collect Fees </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="apps-file-manager.html" class="nav-link"> <span data-key="t-file-manager">Check Data</span></a>
+                                            <a href="{{route('tutionFeeList')}}" class="nav-link"> <span data-key="t-file-manager">Check Data</span></a>
                                         </li>
                                     </ul>
                                 </div>
