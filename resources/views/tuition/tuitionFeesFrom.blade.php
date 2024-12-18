@@ -21,24 +21,35 @@
                 <label for="session" class="form-label">Session Name</label>
                 <select class="form-select " id="session" name="session" aria-label="Default select example" required>
                     <option selected>-select-</option>
-                    <option value="Debit">Octal</option>
-                    <option value="Crtedit">Hidro</option>
+                    @if(!empty($sessionData) && count($sessionData)>0)
+                    @foreach($sessionData as $sd)
+                    <option value="{{$sd->id}}">{{$sd->session}}</option>
+                    @endforeach
+                    @endif                    
                 </select>
             </div>
             <div class="col-md-4 mb-2">
                 <label for="className" class="form-label ">Class Name</label>
                 <select class="form-select " id="className" name="className" aria-label="Default select example" required>
                     <option selected>-select-</option>
-                    <option value="Debit">Six</option>
-                    <option value="Crtedit">Ten</option>
+                    @if(!empty($classData) && count($classData)>0)
+                    @foreach($classData as $cd)
+                    <option value="{{$cd->id}}">{{$cd->className}}</option>
+                    @endforeach
+                    @endif
+                    
                 </select>
             </div>
             <div class="col-md-4 mb-2">
                 <label for="section" class="form-label">Section Name</label>
                 <select class="form-select " id="section" name="section" aria-label="Default select example" required>
                     <option selected>-select-</option>
-                    <option value="Debit">Octal</option>
-                    <option value="Crtedit">Hidro</option>
+                    @if(!empty($sectionData) && count($sectionData)>0)
+                    @foreach($sectionData as $sed)
+                    <option value="{{$sed->id}}">{{$sed->section}}</option>
+                    @endforeach
+                    @endif
+                    
                 </select>
             </div>
             <div class="col-md-4 mb-2">

@@ -6,35 +6,50 @@
                 <thead class="table-info">
                     <tr>
                     <th scope="col">Full Name</th>
-                    <th scope="col">Sure Name</th>
-                    <th scope="col">E-Mail</th>
-                    <th scope="col">Phone</th>
                     <th scope="col">Session</th>
                     <th scope="col">Class</th>
                     <th scope="col">Section</th>
                     <th scope="col">Roll</th>
+                    <th scope="col">E-Mail</th>
+                    <th scope="col">Phone</th>
                     <th scope="col">Image</th>
                     <th>Action</th>
                    
                  </tr>
                 </thead>
                 <tbody class="">
-                @if(!empty($cashManageData) && count($cashManageData)>0)
-                    @foreach($cashManageData    as $d)
+                @if(!empty($stdDetails) && count($stdDetails)>0)
+                    @foreach($stdDetails as $std)
+                    @php 
+                    $sessionData= \App\Models\sessionManage::find($std->sessName);
+                    $classData= \App\Models\classManage::find($std->className);
+                    $sectionData= \App\Models\sectionManage::find($std->sectionName);
+                    @endphp
                     <tr>
-                        <td>fdsf</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <td>{{$std->fullName}}</td>
+                    @if(!empty($sessionData))
+                    <td>{{$sessionData->session}}</td>
+                    @else
+                    <td>-</td>
+                    @endif
+                    @if(!empty($classData))
+                    <td>{{$classData->className}}</td>
+                    @else
+                    <td>-</td>
+                    @endif
+                    @if(!empty($sectionData))
+                    <td>{{$sectionData->section}}</td>
+                    @else
+                    <td>-</td>
+                    @endif
+                    <td>{{$std->rollNumber}}</td>
+                    <td>{{$std->mail}}</td>
+                    <td>{{$std->phone}}</td>
+                    <td>{{$std->avatar}}</td>
                         <td>
-                            <a href=""><i class="fa-solid fa-eye mx-2" style="color:rgb(35 170 211);"></i></a>
-                            <a href=""><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
-                            <a onclick="confirm('are you sure')" href=""><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
+                            <a href="{{route('viewAdmission',['id'=>$std->id])}}"><i class="fa-solid fa-eye mx-2" style="color:rgb(35 170 211);"></i></a>
+                            <a href="{{route('editAdmission',['id'=>$std->id])}}"><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
+                            <a onclick="confirm('are you sure')" href="{{route('dltAdmission',['id'=>$std->id])}}"><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
                         </td>
                     </tr>
                     @endforeach

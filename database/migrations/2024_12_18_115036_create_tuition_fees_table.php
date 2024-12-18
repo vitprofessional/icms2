@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('tuition_fees', function (Blueprint $table) {
             $table->id();
+            $table->string('session')->nullable();
+            $table->string('className')->nullable();
+            $table->string('section')->nullable();
+            $table->string('stdName')->nullable();
+            $table->string('rollNumber')->nullable();
+            $table->string('amount')->nullable();
             $table->timestamps();
         });
     }

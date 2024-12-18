@@ -39,7 +39,6 @@ class individualController extends Controller
 
     //save class 
     public function saveClass(Request $requ){
-
         $chkData = classManage::where(['className'=>$requ->className])->get();
 
         if(!empty($chkData) && count($chkData)>0):
@@ -47,7 +46,7 @@ class individualController extends Controller
         else:
             $savedata = new classManage();
             
-            $savedata -> className = $requ->className;
+            $savedata ->className = $requ->className;
 
             if($savedata->save()):
                 return back()->with('success','Data saved successfully');

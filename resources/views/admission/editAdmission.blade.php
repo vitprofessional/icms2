@@ -11,32 +11,33 @@
     @if(Session::has('error'))
     <div class="alert alert-danger">{{ Session::get('error') }}</div>
     @endif
-    <form class="new-added-form" action="{{ route('saveAdmission') }}" method="POST" enctype="multipart/form-data">
+    <form class="new-added-form" action="{{ route('updateAdmission') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        <input type="hidden" name="admissionId" value="{{$editData->id}}">
         <div class="row mb-2">
             <h5 class="fw-semibold">Personal Information</h5>
         </div>
         <div class="row align-items-center">
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="fullName" class="form-label ">Full Name</label>
-                <input type="text" class="form-control " id="fullName" name="fullName" placeholder="Enter student full name" required>
+                <input type="text" class="form-control " id="fullName" name="fullName" placeholder="Enter student full name" required value="{{$editData->fullName}}">
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="lastName"class="form-label ">Sure Name </label>
-                <input type="text" name="sureName" for="lase-name" placeholder="Enter student last name" class="form-control" id="lastName" required>
+                <input type="text" name="sureName" for="lase-name" placeholder="Enter student last name" class="form-control" id="lastName" require value="{{$editData->sureName}}">
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="fatherName"class="form-label ">Father's Name </label>
-                <input type="text" name="fatherName" placeholder="Enter fathers name" class="form-control" id="fatherName" required>
+                <input type="text" name="fatherName" placeholder="Enter fathers name" class="form-control" id="fatherName"value="{{$editData->father}}">
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="mothername"  class="form-label ">Mother's Name </label>
-                <input type="text" name="motherName" placeholder="Enter Mothers name" class="form-control" id="mothername" required>
+                <input type="text" name="motherName" placeholder="Enter Mothers name" class="form-control" id="mothername"value="{{$editData->mother}}" required>
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="gender" class="form-lavel">Gender </label>
-                <select class="form-select" name="gender" aria-label="Default select example"required>
-                    <option selected>Gender select</option> 
+                <select class="form-select" name="gender" aria-label="Default select example" required>
+                    <option value="{{$editData->gender}}">{{$editData->gender}}</option> 
                     <option value="1">Male</option>
                     <option value="2">Female</option>
                     <option value="3">other</option>
@@ -45,12 +46,12 @@
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="birthDate" class="form-lavel">Date Of Birth </label>
                 <input type="date" name="dob" placeholder="dd/mm/yyyy" class="form-control air-datepicker"
-                    data-position='bottom right' id="birthDate" class="form-confrol" required>
+                    data-position='bottom right' id="birthDate" class="form-confrol" required value="{{$editData->dob}}">
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="bloodgroup" class="form-lavel">Blood group </label>
-                <select class="form-select" name="blGroup" id="bloodgroup" aria-label="Default select example"required>
-                    <option value="">Select </option>
+                <select class="form-select" name="blGroup" id="bloodgroup" aria-label="Default select example"required >
+                    <option value="{{$editData->blGroup}}">{{$editData->blGroup}}</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
                     <option value="B+">B+</option>
@@ -64,7 +65,7 @@
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="regligion" class="form-lavel">regligion</label>
                 <select class="form-select" name="religion" id="regligion" aria-label="Default select example"required>
-                    <option value="">Select </option>
+                    <option value="{{$editData->religion}}">{{$editData->religion}}</option>
                     <option value="Islam">Islam</option>
                     <option value="Hindu">Hindu</option>
                     <option value="Christian">Christian</option>
@@ -74,21 +75,21 @@
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="address" class="form-lavel">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="Student full address" name="address">
+                <input type="text" class="form-control" id="address" placeholder="Student full address" name="address" value="{{$editData->address}}" >
             </div>
         
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="email" class="form-lavel">E-Mail</label>
-                <input type="email" name="mail" id="email" placeholder="Enter student email" class="form-control">
+                <input type="email" name="mail" id="email" placeholder="Enter student email" class="form-control" value="{{$editData->mail}}">
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="phone" class="form-lavel">Phone</label>
-                <input type="text" name="phone" placeholder="Enter gurdian mobile number" id="phone" class="form-control" required>
+                <input type="text" name="phone" placeholder="Enter gurdian mobile number" id="phone" class="form-control" value="{{$editData->phone}}" required>
             </div>
             
             <div class="col-xl-3 col-lg-6 col-12 form-group mg-t-30">
                 <label for="image" class="text-dark-medium">Avatar (150px X 150px)</label>
-                <input type="file" name="avatar" id="image"class="form-control-file">
+                <input type="file" name="avatar" id="image"class="form-control-file" value="{{$editData->avatar}}">
             </div>
         </div>
         <div class="row mb-2 mt-5">
@@ -101,7 +102,7 @@
         <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="session" class="form-lavel">Session </label>
                 <select name="sessName" class="form-control">
-                    <option value="">Select </option>
+                    <option value="{{$editData->sessName}}">{{$editData->sessName}}</option>
                     @if(!empty($sessionDetails) && count($sessionDetails)>0)
                     @foreach($sessionDetails as $sd)
                         <option value="{{ $sd->id }}">{{ $sd->session}}</option>
@@ -113,7 +114,7 @@
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="class" class="form-lavel">Class </label>
                 <select  name="className" class="form-control" id="class">
-                    <option value="">Select </option>
+                    <option value="{{$editData->className}}">{{$editData->className}} </option>
                     @if(!empty($classDetails) && count($classDetails)>0)
                     @foreach($classDetails as $cd)
                         <option value="{{ $cd->id }}">{{ $cd->className}}</option>
@@ -124,7 +125,7 @@
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="section">Section/Group </label>
                 <select class="form-control" name="sectionName" id="section">
-                    <option value="">Select </option>
+                    <option value="{{$editData->sectionName}}">{{$editData->sectionName}} </option>
                     @if(!empty($sectionDatails) && count($sectionDatails)>0)
                     @foreach($sectionDatails as $sec)
                     <option value="{{$sec->id}}">{{$sec->section}}</option>
@@ -134,7 +135,7 @@
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="roll" class="form-lavel">Roll</label>
-                <input type="text"  name="rollNumber" placeholder="Enter student class roll" id="roll" class="form-control" required>
+                <input type="text"  name="rollNumber" placeholder="Enter student class roll" id="roll" class="form-control" required value="{{$editData->rollNumber}}">
             </div>
         </div>
 
@@ -145,17 +146,17 @@
         <div class="row align-items-center">
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="G-name" class="form-label ">Guardian Name</label>
-                <input type="text" class="form-control " id="G-name" name="gurdian" placeholder="Enter Guardian name" required>
+                <input type="text" class="form-control " id="G-name" name="gurdian" placeholder="Enter Guardian name" required value="{{$editData->gurdianName}}">
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="G-phone" class="form-lavel">Mobile No</label>
-                <input type="text" name="gurdianPhone" placeholder="Enter gurdian mobile number" id="G-phone" class="form-control" required>
+                <input type="text" name="gurdianPhone" placeholder="Enter gurdian mobile number" id="G-phone" class="form-control" required value="{{$editData->gurdianMobile}}">
             </div>
 
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="relation" class="form-lavel">Relation</label>
-                <select class="form-select" id="relation" aria-label="Default select example" name="relationWithStd">
-                    <option value="">Select </option>
+                <select class="form-select" id="relation" aria-label="Default select example" name="relationWithStd" >
+                    <option value="{{$editData->relationGurdian}}">{{$editData->relationGurdian}} </option>
                     <option value="Father">Father</option>
                     <option value="Mother">Mother</option>
                     <option value="Brother">Brother</option>
@@ -168,9 +169,10 @@
         </div>
             
         <div class=" col-12 mx-auto mb-5  gap-2 mt-5">
-        <button class="btn btn-primary btn-color btn-sm" type="submit">Submit</button>
-         <button class="btn btn-danger btn-color btn-sm" type="reset">Reset</button>
-                    </div>
+            <button class="btn btn-primary btn-color btn-sm" type="submit">Update</button>
+            <button class="btn mx-2 btn-danger btn-color btn-sm" type="reset">Reset</button>
+            <a href="{{route('studentList')}}"class="btn btn-success btn-color btn-sm">Back</a>
+        </div>
         
     </form>
 </div>

@@ -26,6 +26,27 @@ Route::post('/save/student',[
     admissionController::class,
     'saveAdmission'
 ])->name('saveAdmission');
+
+Route::get('/view-admission/{id}',[
+    admissionController::class,
+    'viewAdmission'
+])->name('viewAdmission');
+
+Route::get('/edit-admission/{id}',[
+    admissionController::class,
+    'editAdmission'
+])->name('editAdmission');
+
+Route::post('/update-admission',[
+    admissionController::class,
+    'updateAdmission'
+])->name('updateAdmission');
+
+
+Route::get('/delete-admission/{id}',[
+    admissionController::class,
+    'dltAdmission'
+])->name('dltAdmission');
 //admission
 
 
