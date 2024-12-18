@@ -22,7 +22,7 @@ class individualController extends Controller
         else:
             $savedata = new sessionManage();
             
-            $savedata -> session = $requ->session;
+            $savedata ->session = $requ->session;
 
             if($savedata->save()):
                 return back()->with('success','Data saved successfully');

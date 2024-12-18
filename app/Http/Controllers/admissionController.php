@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\newAdmission;
+use App\Models\classManage;
 
 class admissionController extends Controller
 {
 
     public function newAdmission(){
-        return view('admission.newAdmission');
+        $classDetails = classManage::all();
+        return view('admission.newAdmission',['classDetails'=>$classDetails]);
     }
 
     public function studentList(){

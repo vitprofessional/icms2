@@ -95,10 +95,18 @@
         <h5 class="fw-semibold">Academic Information</h5>
     </div>
         <div class="row ">
+        @php 
+            $sessionDetails = \App\Models\sessionManage::all();
+        @endphp
         <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="session" class="form-lavel">Session </label>
                 <select name="sessName" class="form-control">
                     <option value="">Select </option>
+                    @if(!empty($sessionDetails) && count($sessionDetails)>0)
+                    @foreach($sessionDetails as $sd)
+                        <option value="{{ $sd->id }}">{{ $sd->session}}</option>
+                        @endforeach
+                    @endif
                 </select>
                     
             </div>
@@ -106,6 +114,11 @@
                 <label for="class" class="form-lavel">Class </label>
                 <select  name="className" class="form-control" id="class">
                     <option value="">Select </option>
+                    @if(!empty($classDetails) && count($classDetails)>0)
+                    @foreach($classDetails as $cd)
+                        <option value="{{ $cd->id }}">{{ $cd->className}}</option>
+                        @endforeach
+                    @endif
                 </select>
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
