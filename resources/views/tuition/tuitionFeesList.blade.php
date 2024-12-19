@@ -20,11 +20,11 @@
                     @if(!empty($tfd) && count($tfd)>0)
                     @foreach($tfd as $tfdData)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$tfdData->created_at->format('Y-m-d')}}</td>
+                        <td>{{ $tfdData->session}}</td>
                         <td>{{ $tfdData->stdName}}</td>
+                        <td>{{ $tfdData->className}}</td>
+                        <td>{{ $tfdData->section}}</td>
                         <td>{{ $tfdData->rollNumber}}</td>
                         <td>{{ $tfdData->amount}}</td>
                     <td>

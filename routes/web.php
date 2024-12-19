@@ -90,20 +90,20 @@ Route::get('/delete-calculas-data/{id}',[
 //cashCalculas end
 
 //Tuition str
-Route::get('/add-tution-fee',[
+Route::get('/add-tuition-fee',[
     tuitionController::class,   //add tuition free
-    'tutionFee'
-])->name('tutionFee');
+    'tuitionFee'
+])->name('tuitionFee');
 
-Route::post('/save-tution-fee',[
+Route::post('/save-tuition-fee',[
     tuitionController::class,
-    'saveTutionfee'
-])->name('saveTutionfee');
+    'saveTuitionfee'
+])->name('saveTuitionfee');
 
-Route::get('/tution-free-list',[
+Route::get('/tuition-free-list',[
     tuitionController::class,   // tuition free list
-    'tutionFeeList'
-])->name('tutionFeeList');
+    'tuitionFeeList'
+])->name('tuitionFeeList');
 //Tuition end
 
 //individual part str

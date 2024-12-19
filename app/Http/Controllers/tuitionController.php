@@ -13,25 +13,25 @@ use App\Models\tuitionFee;
 class tuitionController extends Controller
 {
     // tuition form page
-    public function tutionFee(){
+    public function tuitionFee(){
         $sectionDetails= sectionManage::all();
         $classDetails= classManage::all();
         $sessionDetails = sessionManage::all();
         return view('tuition.tuitionFeesFrom',['sectionData'=>$sectionDetails,'classData'=>$classDetails,'sessionData'=>$sessionDetails]);
     }
 
-    public function saveTutionfee( Request $requ){
-        $savetutionfee= new tuitionFee();
+    public function saveTuitionfee(Request $requ){
+        $saveData = new tuitionFee();
          
-        $savetutionfee->session         =$requ->session;
-        $savetutionfee->className       =$requ->className;
-        $savetutionfee->section         =$requ->section;
-        $savetutionfee->stdName         =$requ->stdName;
-        $savetutionfee->rollNumber      =$requ->rollNumber;
-        $savetutionfee->amount          =$requ->amount;
+        $saveData->session         = $requ->session;
+        $saveData->className       = $requ->className;
+        $saveData->section         = $requ->section;
+        $saveData->stdName         = $requ->stdName;
+        $saveData->rollNumber      = $requ->rollNumber;
+        $saveData->amount          = $requ->amount;
 
 
-        if($savetutionfee->save()):
+        if($saveData->save()):
             return back()->with('success','Data saved sucessfully');
         else:
             return back()->with('error','An error ocoured! please try later');
@@ -39,7 +39,7 @@ class tuitionController extends Controller
     }
     
     // tution Fee List
-    public function tutionFeeList(){
+    public function tuitionFeeList(){
 
         $tutionfeeData = tuitionFee::all();
         return view('tuition.tuitionFeesList',['tfd'=>$tutionfeeData]);

@@ -263,10 +263,10 @@
                                 <div class="collapse menu-dropdown" id="sidebarApps">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="{{route('tutionFee')}}" class="nav-link" data-key="t-chat"> Collect Fees </a>
+                                            <a href="{{route('tuitionFee')}}" class="nav-link" data-key="t-chat"> Collect Fees </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('tutionFeeList')}}" class="nav-link"> <span data-key="t-file-manager">Check Data</span></a>
+                                            <a href="{{route('tuitionFeeList')}}" class="nav-link"> <span data-key="t-file-manager">Check Data</span></a>
                                         </li>
                                     </ul>
                                 </div>
