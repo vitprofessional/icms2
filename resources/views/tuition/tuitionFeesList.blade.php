@@ -17,14 +17,32 @@
                     </tr>
                 </thead>
                 <tbody class="">
+                    
                     @if(!empty($tfd) && count($tfd)>0)
                     @foreach($tfd as $tfdData)
+                    @php
+                    $sessionData= \App\Models\sessionManage::find($tfdData->session);
+                    $classData= \App\Models\classManage::find($tfdData->className);
+                    $sectionData= \App\Models\sectionManage::find($tfdData->section);
+                    @endphp
                     <tr>
                         <td>{{$tfdData->created_at->format('Y-m-d')}}</td>
-                        <td>{{ $tfdData->session}}</td>
-                        <td>{{ $tfdData->stdName}}</td>
-                        <td>{{ $tfdData->className}}</td>
-                        <td>{{ $tfdData->section}}</td>
+                        @if(!empty($sessionData))
+                        <td>{{ $sessionData->session}}</td>
+                        @else
+                        <td>-</td>
+                        @endif
+                        <td>{{$tfdData->stdName}}</td>
+                         @if(!empty($classData))
+                        <td>{{ $classData->className}}</td>
+                        @else
+                        <td>-</td>
+                        @endif
+                         @if(!empty($sectionData))
+                        <td>{{ $sectionData->section}}</td>
+                        @else
+                        <td>-</td>
+                        @endif
                         <td>{{ $tfdData->rollNumber}}</td>
                         <td>{{ $tfdData->amount}}</td>
                     <td>
