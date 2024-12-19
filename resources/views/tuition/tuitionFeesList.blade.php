@@ -17,20 +17,24 @@
                     </tr>
                 </thead>
                 <tbody class="">
+                    @if(!empty($tfd) && count($tfd)>0)
+                    @foreach($tfd as $tfdData)
                     <tr>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <a href=""><i class="fa-solid fa-eye mx-2" style="color:rgb(35 170 211);"></i></a>
+                        <td>{{ $tfdData->stdName}}</td>
+                        <td>{{ $tfdData->rollNumber}}</td>
+                        <td>{{ $tfdData->amount}}</td>
+                    <td>
+                        <a href=""><i class="fa-solid fa-eye mx-2" style="color:rgb(35 170 211);"></i></a>
                             <a href=""><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
                             <a onclick="confirm('are you sure')" href=""><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
                         </td>
                     </tr>
+                    @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
