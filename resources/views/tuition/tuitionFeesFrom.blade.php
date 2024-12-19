@@ -11,7 +11,7 @@
                         {{session()->get('success')}}
                     </div>
                 @endif
-    <form method="POST" class="card-body form" action="">
+    <form method="POST" class="card-body form" action="{{route('saveTutionfee')}}">
         @csrf
         <div class="row mb-4">
             <h4 class="text-bold">Tuition Fees Collection</h4>

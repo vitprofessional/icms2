@@ -95,7 +95,12 @@ Route::get('/add-tution-fee',[
     'tutionFee'
 ])->name('tutionFee');
 
-Route::get('/tution-fee-list',[
+Route::post('/save-tution-fee',[
+    tuitionController::class,
+    'saveTutionfee'
+])->name('saveTutionfee');
+
+Route::get('/tution-free-list',[
     tuitionController::class,   // tuition free list
     'tutionFeeList'
 ])->name('tutionFeeList');
