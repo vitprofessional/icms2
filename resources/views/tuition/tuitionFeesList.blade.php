@@ -7,6 +7,7 @@
                 <thead class="table-info">
                     <tr>
                     <th>Date</th>
+                    <th>Session</th>
                     <th>Student Name</th>
                     <th>Class</th>
                     <th>Section Name</th>
@@ -17,6 +18,7 @@
                 </thead>
                 <tbody class="">
                     <tr>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
