@@ -82,10 +82,6 @@ class admissionController extends Controller
 
     //update
     public function updateAdmission(Request $requ){
-        $chk = newAdmission::where(['rollNumber'=>$requ->rollNumber,'className'=>$requ->className,'sessName'=>$requ->sessName,'sectionName'=>$requ->sectionName])->get();
-        if(!empty($chk) && count($chk)>0):
-            return back()->with('error','Data already exist');
-        else:
             $upData = newAdmission::find($requ->admissionId);
 
                 $upData->fullName         = $requ->fullName;
@@ -112,7 +108,6 @@ class admissionController extends Controller
             else:
                 return back()->with("error");
             endif;
-        endif;
 
      }
      

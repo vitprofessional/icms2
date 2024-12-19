@@ -4,25 +4,42 @@
         <div class="card card-body  border  ">
             
         <div class="mb-3 text-center">
-         <u class="h4">View Student Admission</u>
+         <u class="h4">View Student Profile</u>
         </div>
             <table class=" table table-striped table-hover hadow-lg p-3 rounded" >
+                @php
+                $sessionData =\App\Models\sessionManage::find($singleData->sessName);
+                $classData   =\App\Models\classManage::find($singleData->className);
+                $sectionData =\App\Models\sectionManage::find($singleData->sectionName);
+                @endphp
                 <tbody class="">
                     <tr>
-                        <th scope="col">Full Name</th>
+                        <th scope="col">Student Name</th>
                         <td>{{$singleData->fullName}}</td>
                     </tr>
                     <tr>
                         <th scope="col">Session</th>
-                        <td>{{$singleData->sessName}}</td>
+                        @if(!empty($sessionData))
+                        <td>{{$sessionData->session}}</td>
+                        @else
+                        <td>-</td>
+                        @endif
                     </tr>
                     <tr>
                         <th scope="col">Class</th>
-                        <td>{{$singleData->className}}</td>
+                        @if(!empty($classData))
+                        <td>{{$classData->className}}</td>
+                        @else
+                        <td>-</td>
+                        @endif
                     </tr>
                     <tr>
                         <th scope="col">Section</th>
-                        <td>{{$singleData->sectionName}}</td>
+                        @if(!empty($sectionData))
+                        <td>{{$sectionData->section}}</td>
+                        @else
+                        <td>-</td>
+                        @endif
                     </tr>
                     <tr>
                         <th scope="col">Roll</th>

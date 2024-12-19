@@ -98,34 +98,46 @@
         <div class="row ">
         @php 
             $sessionDetails = \App\Models\sessionManage::all();
+            $sessionData  = \App\Models\sessionManage::find($editData->sessName);
+            $classData  = \App\Models\classManage::find($editData->className);
+            $sectionData  = \App\Models\sectionManage::find($editData->sectionName);
         @endphp
         <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="session" class="form-lavel">Session </label>
                 <select name="sessName" class="form-control">
-                    <option value="{{$editData->sessName}}">{{$editData->sessName}}</option>
-                    @if(!empty($sessionDetails) && count($sessionDetails)>0)
-                    @foreach($sessionDetails as $sd)
-                        <option value="{{ $sd->id }}">{{ $sd->session}}</option>
-                        @endforeach
+                    @if(!empty($sessionData))
+                    <option value="{{$sessionData->id}}">{{$sessionData->session}}</option>
+                    
                     @endif
+                        @if(!empty($sessionDetails) && count($sessionDetails)>0)
+                        @foreach($sessionDetails as $sd)
+                            <option value="{{ $sd->id }}">{{ $sd->session}}</option>
+                            @endforeach
+                        @endif
                 </select>
                     
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="class" class="form-lavel">Class </label>
                 <select  name="className" class="form-control" id="class">
-                    <option value="{{$editData->className}}">{{$editData->className}} </option>
-                    @if(!empty($classDetails) && count($classDetails)>0)
-                    @foreach($classDetails as $cd)
-                        <option value="{{ $cd->id }}">{{ $cd->className}}</option>
-                        @endforeach
+                    @if(!empty($classData))
+                    <option value="{{$classData->id}}">{{$classData->className}} </option>
+                    
                     @endif
+                        @if(!empty($classDetails) && count($classDetails)>0)
+                            @foreach($classDetails as $cd)
+                            <option value="{{ $cd->id }}">{{ $cd->className}}</option>
+                            @endforeach
+                        @endif
                 </select>
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="section">Section/Group </label>
                 <select class="form-control" name="sectionName" id="section">
-                    <option value="{{$editData->sectionName}}">{{$editData->sectionName}} </option>
+                    @if(!empty($sectionData))
+                    <option value="{{$sectionData->id}}">{{$sectionData->section}} </option>
+                    
+                    @endif
                     @if(!empty($sectionDatails) && count($sectionDatails)>0)
                     @foreach($sectionDatails as $sec)
                     <option value="{{$sec->id}}">{{$sec->section}}</option>
