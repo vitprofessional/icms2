@@ -13,6 +13,12 @@
                 $sectionData =\App\Models\sectionManage::find($singleData->sectionName);
                 @endphp
                 <tbody class="">
+
+                    <tr><td>{{$tfdData->created_at->format('Y-m-d')}}</td>
+                        @if(!empty($sessionData))
+                        <td>{{ $sessionData->session}}</td>
+                        @else
+                        <td>-</td></tr>
                     <tr>
                         <th scope="col">Student Name</th>
                         <td>{{$singleData->fullName}}</td>

@@ -45,4 +45,9 @@ class tuitionController extends Controller
         return view('tuition.tuitionFeesList',['tfd'=>$tutionfeeData]);
     }
 
+    public function tuitionFeeView($id){
+        $singleData = tuitionFee::find($id);
+        return view('tuition.viewTutionFee',['singleView'=>$singleData]);
+    }
+
 }

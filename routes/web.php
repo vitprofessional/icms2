@@ -100,10 +100,15 @@ Route::post('/save-tuition-fee',[
     'saveTuitionfee'
 ])->name('saveTuitionfee');
 
-Route::get('/tuition-free-list',[
+Route::get('/tuition-fee-list',[
     tuitionController::class,   // tuition free list
     'tuitionFeeList'
 ])->name('tuitionFeeList');
+
+Route::get('/tuition-fee-view/{id}',[
+    tuitionController::class,   // tuition free view
+    'tuitionFeeView'
+])->name('tuitionFeeView');
 //Tuition end
 
 //individual part str
