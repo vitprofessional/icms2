@@ -1,7 +1,7 @@
 @extends('includePage') 
 @section('body')
-    <div class="row   ">
-        <div class="card card-body  border  ">
+    <div class="row">
+        <div class="card card-body  border">
             @if(Session::has('success'))
             <div class="alert alert-success">
                 {{Session::get('success')}}

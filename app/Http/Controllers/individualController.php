@@ -34,7 +34,9 @@ class individualController extends Controller
     }
     //add class
     public function classForm(){
-        return view('individualPart.classForm');
+        
+        $classLi = classManage::all();
+        return view('individualPart.classForm',['classList'=>$classLi]);
     }
 
     //save class 
@@ -56,10 +58,32 @@ class individualController extends Controller
         endif;
         
     }
-    
+
+    //edit class
+    public function editClass($id){
+        $classData = classManage::find($id);
+        return view('individualPart.editClass',['editData'=>$classData]);
+    }
+
+     //update class 
+     public function updateClass(Request $requ){
+       
+            $updateData =  classManage::find($requ->classId);
+            
+            $updateData ->className = $requ->className;
+
+            if($updateData->save()):
+                return redirect(route('classForm'))->with("success",'update successfully');
+            else:
+                return back()->with("error",'Data update failed');
+            endif;
+        
+    }
+
     //add section
     public function sectionForm(){
-        return view('individualPart.sectionForm');
+        $sectionLi = sectionManage::all();
+        return view('individualPart.sectionForm',['sectionList'=>$sectionLi]);
     }
 
 
@@ -82,4 +106,26 @@ class individualController extends Controller
         endif;
         
     }
+
+    //edit class
+    public function editSection($id){
+        $sectionData = sectionManage::find($id);
+        return view('individualPart.editSection',['editData'=>$sectionData]);
+    }
+
+    //update class 
+    public function updateSection(Request $requ){
+       
+        $updateData =  sectionManage::find($requ->sectionId);
+        $updateData ->section = $requ->section;
+
+        if($updateData->save()):
+            return redirect(route('sectionForm'))->with("success",'update successfully');
+        else:
+            return back()->with("error",'Data update failed');
+        endif;
+    
+}
+
+
 }

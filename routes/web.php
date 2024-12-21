@@ -117,7 +117,7 @@ Route::post('/save-session',[
     'saveSession'
    ])->name('saveSession');
 
-
+//class str
 Route::get('/add-class',[
     individualController::class, //add class
     'classForm'
@@ -128,12 +128,35 @@ Route::get('/add-class',[
     'saveClass'
    ])->name('saveClass');
 
+   Route::get('/edit-data/{id}',[
+    individualController::class, //edit class
+    'editClass'
+   ])->name('editClass');
 
+   Route::post('/update-class',[
+    individualController::class, //update class
+    'updateClass'
+   ])->name('updateClass');
+
+//class end
+
+//section str
    Route::get('/add-section',[
     individualController::class, //add section
     'sectionForm'
    ])->name('sectionForm');
 
+   Route::get('/edit-section-data/{id}',[
+    individualController::class, //edit section
+    'editSection'
+   ])->name('editSection');
+
+   Route::post('/update-section',[
+    individualController::class, //update Section
+    'updateSection'
+   ])->name('updateSection');
+
+   //section end
    Route::post('/save-section',[
     individualController::class, //add section
     'saveSection'

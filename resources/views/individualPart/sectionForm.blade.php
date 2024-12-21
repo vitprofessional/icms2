@@ -34,22 +34,26 @@
 <div class="row">
     <div class="col-md-6 mx-auto">
         <div class="card card-body  border  ">
-            <table class=" table table-striped table-hover text-center shadow-lg p-3 rounded" >
+            <table class=" table table-striped table-hover shadow-lg p-3 rounded" >
                 <thead class="table-info">
+
                     <tr>
                     <th>Section Name</th>
                     <th>Acton</th>
                     </tr>
                 </thead>
                 <tbody class="">
-                    <tr>
-                        <td></td>
-                    <td>
-                        <a href=""><i class="fa-solid fa-eye mx-2" style="color:rgb(35 170 211);"></i></a>
-                            <a href=""><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
-                            <a onclick="confirm('are you sure')" href=""><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
-                        </td>
-                    </tr>
+                @if(!empty($sectionList) && count($sectionList)>0)
+                    @foreach($sectionList as $sec)
+                        <tr>
+                            <td>{{$sec -> section}}</td>
+                        <td>
+                                <a href="{{route('editSection',['id'=> $sec->id])}}"><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
+                                <a onclick="confirm('are you sure')" href=""><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
                 </tbody>
             </table>
         </div>
