@@ -50,4 +50,43 @@ class tuitionController extends Controller
         return view('tuition.viewTutionFee',['singleView'=>$singleData]);
     }
 
+    //edit tiutionfee
+    public function editTuitionFee($id){
+        $sectionData= sectionManage::all();
+        $classData= classManage::all();
+        $sessionData = sessionManage::all();
+        $tuitionFeeData = tuitionFee::find($id);    
+        return view('tuition.editTuitionFee',['editData'=>$tuitionFeeData,'sectionDetails'=>$sectionData,'classDetails'=>$classData ,'sessionDetails'=>$sessionData ]);
+    }
+
+    //update tiutionfee 
+    public function updateTuitionFee(Request $requ){
+            $updateData =  tuitionFee::find($requ->tuitionFeeId);
+            $updateData->session         = $requ->session;
+            $updateData->className       = $requ->className;
+            $updateData->section         = $requ->section;
+            $updateData->stdName         = $requ->stdName;
+            $updateData->rollNumber      = $requ->rollNumber;
+            $updateData->amount          = $requ->amount;
+
+            if($updateData->save()):
+                return redirect(route('tuitionFeeList'))->with("success",'update successfully');
+            else:
+                return back()->with("error",'Data update failed');
+            endif;
+    
+    }
+
+    //delelte 
+    public function dltTuitionFee($id){
+        $dltData = tuitionFee::find($id);
+
+        if($dltData->delete()):
+            return back()->with('success','data entry successfully');
+        else:
+            return back()->with('error','data deletion failed');
+        endif;
+    
+     }
+
 }

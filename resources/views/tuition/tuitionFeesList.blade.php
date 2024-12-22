@@ -47,8 +47,8 @@
                         <td>{{ $tfdData->amount}}</td>
                     <td>
                         <a href="{{route('tuitionFeeView',['id'=>$tfdData->id])}}"><i class="fa-solid fa-eye mx-2" style="color:rgb(35 170 211);"></i></a>
-                            <a href=""><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
-                            <a onclick="confirm('are you sure')" href=""><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
+                            <a href="{{route('editTuitionFee',['id'=>$tfdData->id])}}"><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
+                            <a onclick="confirm('are you sure')" href="{{route('dltTuitionFee',['id'=>$tfdData->id])}}"><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
                         </td>
                     </tr>
                     @endforeach

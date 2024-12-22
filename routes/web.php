@@ -84,7 +84,7 @@ Route::post('/update-cash-calculas',[
 ])->name('updateCashCalculas');
 
 Route::get('/delete-calculas-data/{id}',[
-    cashCalculasController::class,
+    cashCalculasController::class,      // delete calculas
     'dltCalculasData'
 ])->name('dltCalculasData');
 //cashCalculas end
@@ -109,9 +109,26 @@ Route::get('/tuition-fee-view/{id}',[
     tuitionController::class,   // tuition free view
     'tuitionFeeView'
 ])->name('tuitionFeeView');
+
+Route::get('/edit-tuition-fee/{id}',[
+    tuitionController::class, //edit tuition free
+    'editTuitionFee'
+   ])->name('editTuitionFee');
+
+   Route::post('/update-tuition-fee',[
+    tuitionController::class, //update tuition free
+    'updateTuitionFee'
+   ])->name('updateTuitionFee');
+
+   Route::get('/delete-tuition-fee/{id}',[
+    tuitionController::class,      // delete tuition free
+    'dltTuitionFee'
+])->name('dltTuitionFee');
 //Tuition end
 
 //individual part str
+
+//session str
 Route::get('/add-session',[
  individualController::class, //add session
  'sessionForm'
@@ -121,6 +138,24 @@ Route::post('/save-session',[
     individualController::class, //save session
     'saveSession'
    ])->name('saveSession');
+
+Route::get('/edit-session-data/{id}',[
+    individualController::class, //edit session
+    'editSession'
+    ])->name('editSession');
+
+Route::post('/update-session',[
+    individualController::class, //update session
+    'updateSession'
+])->name('updateSession');
+
+
+Route::get('/delete-session-data/{id}',[
+    individualController::class,      // delete session
+    'deleteSession'
+])->name('deleteSession');
+
+//session end
 
 //class str
 Route::get('/add-class',[
@@ -142,6 +177,11 @@ Route::get('/add-class',[
     individualController::class, //update class
     'updateClass'
    ])->name('updateClass');
+
+   Route::get('/delete-class-data/{id}',[
+    individualController::class,      // delete class
+    'deleteClass'
+])->name('deleteClass');
 
 //class end
 
@@ -166,4 +206,9 @@ Route::get('/add-class',[
     individualController::class, //add section
     'saveSection'
    ])->name('saveSection');
+
+   Route::get('/delete-section-data/{id}',[
+    individualController::class,      // delete class
+    'deleteSection'
+])->name('deleteSection');
 //individual part end

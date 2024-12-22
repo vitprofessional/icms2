@@ -48,7 +48,7 @@
                         <td>{{$cd->className}}</td>
                     <td>
                             <a href="{{route('editClass',['id'=>$cd->id])}}"><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
-                            <a onclick="confirm('are you sure')" href=""><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
+                            <a onclick="confirm('are you sure')" href="{{route('deleteClass',['id'=>$cd->id])}}"><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>
                         </td>
                     </tr>
                     @endforeach

@@ -107,7 +107,6 @@
                 <select name="sessName" class="form-control">
                     @if(!empty($sessionData))
                     <option value="{{$sessionData->id}}">{{$sessionData->session}}</option>
-                    
                     @endif
                         @if(!empty($sessionDetails) && count($sessionDetails)>0)
                         @foreach($sessionDetails as $sd)

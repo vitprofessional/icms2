@@ -7,17 +7,25 @@
          <u class="h4">View Student Profile</u>
         </div>
             <table class=" table table-striped table-hover hadow-lg p-3 rounded" >
-               
+               @php
+                $sessionData= \App\Models\sessionManage::find($singleView->session);
+                $classData = \App\Models\classManage::find($singleView->className);
+                $sectionData = \App\Models\sectionManage::find($singleView->section);
+               @endphp
               
                 <tbody class="">
-                <tr>
+                    <tr>
                         <th scope="col">Date</th>
                         <td>{{$singleView->created_at}}</td>
                     </tr>
                     
                     <tr>
                         <th scope="col">Session</th>
-                      <td>{{$singleView->session}}</td>
+                        @if(!empty($sessionData))
+                        <td>{{$sessionData->session}}</td>
+                        @else:
+                        <td>-</td>
+                        @endif
                      
                     </tr>
                     <tr>
@@ -26,11 +34,19 @@
                     </tr>
                     <tr>
                         <th scope="col">Class</th>
-                        <td>{{$singleView->className}}</td>
+                        @if(!empty($sectionData))
+                        <td>{{$classData->className}}</td>
+                        @else:
+                        <td>-</td>
+                        @endif
                     </tr>
                     <tr>
                         <th scope="col">Section</th>
-                        <th>{{$singleView->section}}</th>
+                        @if(!empty($sectionData))
+                        <td>{{$sectionData->section}}</td>
+                        @else:
+                        <td>-</td>
+                        @endif
                     </tr>
                     <tr>
                         <th scope="col">Roll Number</th>

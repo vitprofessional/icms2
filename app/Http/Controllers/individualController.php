@@ -10,9 +10,9 @@ class individualController extends Controller
 {
     //add session
     public function sessionForm(){
-        return view('individualPart.sessionForm'); 
+        $sessionLi = sessionManage::all();
+        return view ('individualPart.sessionForm',['sessionList'=>$sessionLi]); 
     }
-    
     //save session 
     public function saveSession(Request $requ){
         $chkData = sessionManage::where(['session'=>$requ->session])->get();
@@ -32,6 +32,44 @@ class individualController extends Controller
         endif;
         
     }
+
+    //edit session
+    public function editSession($id){
+        $sessionData = sessionManage::find($id);
+        return view('individualPart.editSession',['editData'=>$sessionData]);
+    }
+
+    //update session 
+    public function updateSession(Request $requ){
+        $chkData = sessionManage::where(['session'=>$requ->session])->get();
+
+        if(!empty($chkData) && count($chkData)>0):
+            return back()->with('error','Data entry failed');
+        else:
+            $updateData =  sessionManage::find($requ->sessionId);
+            $updateData ->session = $requ->session;
+
+            if($updateData->save()):
+                return redirect(route('sessionForm'))->with("success",'update successfully');
+            else:
+                return back()->with("error",'Data update failed');
+            endif;
+        endif;
+    
+    }
+    
+    
+    //delelte session
+    public function deleteSession($id){
+        $dltData = sessionManage::find($id);
+
+        if($dltData->delete()):
+            return back()->with('success','data Delete successfully');
+        else:
+            return back()->with('error','data deletion failed');
+        endif;
+    
+     }
     //add class
     public function classForm(){
         
@@ -67,7 +105,11 @@ class individualController extends Controller
 
      //update class 
      public function updateClass(Request $requ){
-       
+        $chkData = classManage::where(['className'=>$requ->className])->get();
+
+        if(!empty($chkData) && count($chkData)>0):
+            return back()->with('error','Data entry failed');
+        else:
             $updateData =  classManage::find($requ->classId);
             
             $updateData ->className = $requ->className;
@@ -77,8 +119,21 @@ class individualController extends Controller
             else:
                 return back()->with("error",'Data update failed');
             endif;
+        endif;
         
     }
+    
+    //delelte class
+    public function deleteClass($id){
+        $dltData = classManage::find($id);
+
+        if($dltData->delete()):
+            return back()->with('success','data Delete successfully');
+        else:
+            return back()->with('error','data deletion failed');
+        endif;
+    
+     }
 
     //add section
     public function sectionForm(){
@@ -107,25 +162,41 @@ class individualController extends Controller
         
     }
 
-    //edit class
+    //edit section
     public function editSection($id){
         $sectionData = sectionManage::find($id);
         return view('individualPart.editSection',['editData'=>$sectionData]);
     }
 
-    //update class 
+    //update section 
     public function updateSection(Request $requ){
-       
-        $updateData =  sectionManage::find($requ->sectionId);
-        $updateData ->section = $requ->section;
+        $chkData = sectionManage::where(['section'=>$requ->section])->get();
 
-        if($updateData->save()):
-            return redirect(route('sectionForm'))->with("success",'update successfully');
+        if(!empty($chkData) && count($chkData)>0):
+            return back()->with('error','Data entry failed');
         else:
-            return back()->with("error",'Data update failed');
+            $updateData =  sectionManage::find($requ->sectionId);
+            $updateData ->section = $requ->section;
+
+            if($updateData->save()):
+                return redirect(route('sectionForm'))->with("success",'update successfully');
+            else:
+                return back()->with("error",'Data update failed');
+            endif;
         endif;
     
-}
+    }
 
+    //delelte section
+    public function deleteSection($id){
+        $dltData = sectionManage::find($id);
+
+        if($dltData->delete()):
+            return back()->with('success','data Delete successfully');
+        else:
+            return back()->with('error','data deletion failed');
+        endif;
+    
+     }
 
 }
