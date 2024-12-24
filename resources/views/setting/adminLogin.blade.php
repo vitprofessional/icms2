@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="col-12 card card-body  rounded-0 border-0">
-            <form method="POST" class="form" action="">
+            <form method="POST" class="form" action="{{ route('adminLoginConfirm') }}">
                 @csrf
                 <div class="mb-2">
                     <label for="userId" class="form-label">User Id</label>

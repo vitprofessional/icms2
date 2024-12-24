@@ -10,7 +10,7 @@ class cofigurationController extends Controller
 {
     public function adminLogin(){
         $config = configurationManage::all();
-        if(!empty($config) && count($config)>0):
+        if(!empty($config) && count(array($config))>0):
             return view('setting.adminLogin');
         else:
             return  redirect(route('configurationView'))->with('error','Please install your server to manage the system');
@@ -19,7 +19,7 @@ class cofigurationController extends Controller
 
     public function adminLoginConfirm(Request $requ){
         $chk = configurationManage::where(['userId'=>$requ->userId])->first();
-        if(!empty($chk) && count($chk)>0):
+        if(!empty($chk) && count(array($chk))>0):
             $pass = Hash::check($requ->pass,$chk->pass);
             if($pass):
                 return redirect(route('newAdmission'));
