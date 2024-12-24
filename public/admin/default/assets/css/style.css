@@ -1,3 +1,20 @@
 /* .layout-width{
     background-color:#13c9b0 !important;
 } */
+/* login css start*/
+.form-box{
+    width: 300px;
+    height: 480px;
+    position: relative;
+    margin: 6% auto;
+    background: #F0F8FF;
+    padding: 5px;
+}
+.input-field{
+    width: 100%;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #2388db;
+    outline: none;
+    background: transparent;
+}

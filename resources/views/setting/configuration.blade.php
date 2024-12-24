@@ -26,6 +26,8 @@
         <link href="{{asset('/public/admin/default/')}}/assets/css/app.min.css" rel="stylesheet" type="text/css" />
         <!-- custom Css-->
         <link href="{{asset('/public/admin/default/')}}/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+        
+        <link href="{{asset('/public/admin/default/')}}/assets/css/style.css" rel="stylesheet" type="text/css" />
         <!-- font awesome -->
         <script src="https://kit.fontawesome.com/32dcd4a478.js" crossorigin="anonymous"></script>
         <!-- custom css -->
@@ -33,27 +35,43 @@
     </head>
 <body>
     <div class="row form-box">
-        <div class="col-12 card text-center border-0">
+        <div class="col-12  text-center border-0">
             <div class="">
                 <div id="btn"></div>
-                <img src="" alt="" class="w-50" />
+                <img src="{{asset('/public/admin/default/')}}/assets/images/faq-img.png" alt="" class="w-50" />
             </div>
         </div>
         <div class="col-12 card card-body  rounded-0 border-0">
             <form>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Pin Number</label>
-                    <input type="email" class="form-control input-field" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your pin " required />
+                <div class="mb-2">
+                    <label for="institute" class="form-label">Institutaion Name</label>
+                    <input type="text" class="form-control input-field" id="institute" name="institute" placeholder="enter the Institutaion Name " required />
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control input-field" id="exampleInputPassword1" placeholder="enter your password" required />
+                <div class="mb-2">
+                    <label for="location" class="form-label">Address</label>
+                    <input type="text" class="form-control input-field" id="location" name="location" placeholder="enter the institutaion location " required />
                 </div>
-                <div class="mb-3 form-check">
+                <div class="mb-2">
+                    <label for="mail" class="form-label">Email</label>
+                    <input type="email" class="form-control input-field" id="mail" name="mail" aria-describedby="emailHelp" placeholder="enter the email " required />
+                </div>
+                <div class="mb-2">
+                    <label for="mobile" class="form-label">Phone Number</label>
+                    <input type="number" class="form-control input-field" id="mobile"  name="mobile"  placeholder="enter the number " required />
+                </div>
+                <div class="mb-2">
+                    <label for="userId" class="form-label">User Id</label>
+                    <input type="text" class="form-control input-field" id="userId"  name="userId"  placeholder="generate won id " required />
+                </div>
+                <div class="mb-2">
+                    <label for="pass" class="form-label">Password</label>
+                    <input type="password" class="form-control input-field" id="pass" name="pass" placeholder="generate won password" required />
+                </div>
+                <div class="mb-2 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" />
                     <label class="form-check-label span" for="exampleCheck1">Remember Password</label>
                 </div>
-                <div class="text-center">
+                <div class="text-center mt-4">
                 <button type="submit" class="btn btn-sm btn-info  text-white">Log in</button>
                 </div>
                 
