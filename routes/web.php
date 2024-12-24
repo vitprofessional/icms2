@@ -7,10 +7,20 @@ use App\Http\Controllers\cashCalculasController;
 use App\Http\Controllers\admissionController;
 use App\Http\Controllers\individualController;
 use App\Http\Controllers\tuitionController;
+use App\Http\Controllers\configurationController;
 
 Route::get('/', function () {
     return view('admin.home');
 });
+
+//cofiguration str
+Route::get('/config',[
+    admissionController::class,
+    'configurationView'
+])->name('configurationView');
+
+//configuration end
+
 //admission
 Route::get('/new-admission',[
     admissionController::class,
