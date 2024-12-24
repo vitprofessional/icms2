@@ -22,7 +22,7 @@ class cofigurationController extends Controller
         if(!empty($chk) && count($chk)>0):
             $pass = Hash::check($requ->pass,$chk->pass);
             if($pass):
-                return redirect(url('/'));
+                return redirect(route('newAdmission'));
             else:
                 return back()->with('error','Wrong password provided');
             endif;
