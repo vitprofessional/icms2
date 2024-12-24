@@ -13,7 +13,7 @@ class cofigurationController extends Controller
         if(!empty($config) && count($config)>0):
             return view('setting.adminLogin');
         else:
-            return redirect(route('configurationView'))->with('error','Please install your server to manage the system');
+            return  redirect(route('configurationView'))->with('error','Please install your server to manage the system');
         endif;
     }
 

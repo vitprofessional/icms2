@@ -19,6 +19,11 @@ Route::get('/admin/login',[
     'adminLogin'
 ])->name('adminLogin');
 
+Route::post('/admin/login/confirm',[
+    cofigurationController::class,
+    'adminLoginConfirm'
+])->name('adminLoginConfirm');
+
 Route::get('/configuration',[
     cofigurationController::class,
     'configurationView'
@@ -29,10 +34,6 @@ Route::post('/save/configuration',[
     'saveConfiguration'
 ])->name('saveConfiguration');
 
-Route::post('/admin/login/confirm',[
-    cofigurationController::class,
-    'adminLoginConfirm'
-])->name('adminLoginConfirm');
 //configuration end
 
 //admission
