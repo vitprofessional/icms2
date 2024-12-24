@@ -7,15 +7,15 @@ use App\Http\Controllers\cashCalculasController;
 use App\Http\Controllers\admissionController;
 use App\Http\Controllers\individualController;
 use App\Http\Controllers\tuitionController;
-use App\Http\Controllers\configurationController;
+use App\Http\Controllers\cofigurationController;
 
 Route::get('/', function () {
     return view('admin.home');
 });
 
 //cofiguration str
-Route::get('/config',[
-    admissionController::class,
+Route::get('/configuration',[
+    cofigurationController::class,
     'configurationView'
 ])->name('configurationView');
 
