@@ -15,9 +15,6 @@ class FrontEnd extends Controller
         return view('admin.home');
     }
 
-    
-
-
     public function logout(){
         Session()->invalidate();
         Session()->regenerateToken();

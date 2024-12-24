@@ -14,6 +14,11 @@ Route::get('/', function () {
 });
 
 //cofiguration str
+Route::get('/admin/login',[
+    cofigurationController::class,
+    'adminLogin'
+])->name('adminLogin');
+
 Route::get('/configuration',[
     cofigurationController::class,
     'configurationView'
