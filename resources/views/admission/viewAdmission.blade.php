@@ -14,17 +14,16 @@
                 @endphp
                 <tbody class="">
 
-                    <tr><td>{{$tfdData->created_at->format('Y-m-d')}}</td>
-                        @if(!empty($sessionData))
-                        <td>{{ $sessionData->session}}</td>
-                        @else
-                        <td>-</td></tr>
                     <tr>
-                        <th scope="col">Student Name</th>
+                        <th>Admission Date</th>
+                        <td>{{$singleData->created_at->format('d-m-y')}}</td>
+                    </tr>
+                    <tr>
+                        <th >Student Name</th>
                         <td>{{$singleData->fullName}}</td>
                     </tr>
                     <tr>
-                        <th scope="col">Session</th>
+                        <th >Session</th>
                         @if(!empty($sessionData))
                         <td>{{$sessionData->session}}</td>
                         @else
@@ -32,7 +31,7 @@
                         @endif
                     </tr>
                     <tr>
-                        <th scope="col">Class</th>
+                        <th >Class</th>
                         @if(!empty($classData))
                         <td>{{$classData->className}}</td>
                         @else
@@ -40,7 +39,7 @@
                         @endif
                     </tr>
                     <tr>
-                        <th scope="col">Section</th>
+                        <th >Section</th>
                         @if(!empty($sectionData))
                         <td>{{$sectionData->section}}</td>
                         @else
@@ -48,19 +47,19 @@
                         @endif
                     </tr>
                     <tr>
-                        <th scope="col">Roll</th>
+                        <th >Roll</th>
                         <td>{{$singleData->rollNumber}}</td>
                     </tr>
                     <tr>
-                        <th scope="col">E-Mail</th>
+                        <th >E-Mail</th>
                         <td>{{$singleData->mail}}</td>
                     </tr>
                     <tr>
-                        <th scope="col">Phone</th>
+                        <th >Phone</th>
                         <td>{{$singleData->phone}}</td>
                     </tr>
                     <tr>
-                        <th scope="col">Image</th>
+                        <th >Image</th>
                         <td><img src="{{ asset('/public/upload/image/student/') }}/{{ $singleData->avatar }}" alt="jhjh" class="w-25"></td>
                     </tr>
                     

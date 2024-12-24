@@ -100,6 +100,11 @@ Route::get('/delete-calculas-data/{id}',[
 //cashCalculas end
 
 //Tuition str
+Route::get('/getStudentForTutionFee/{class}/{session}/{section}',[
+    tuitionController::class,
+    'getStudentForTutionFee'
+])->name('getStudentForTutionFee');
+
 Route::get('/add-tuition-fee',[
     tuitionController::class,   //add tuition free
     'tuitionFee'
