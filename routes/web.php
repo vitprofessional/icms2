@@ -14,7 +14,7 @@ Route::get('/', function () {
 });
 
 //cofiguration str
-Route::post('/admin/login',[
+Route::get('/admin/login',[
     cofigurationController::class,
     'adminLogin'
 ])->name('adminLogin');
@@ -29,7 +29,7 @@ Route::post('/save/configuration',[
     'saveConfiguration'
 ])->name('saveConfiguration');
 
-Route::get('/admin/login/confirm',[
+Route::post('/admin/login/confirm',[
     cofigurationController::class,
     'adminLoginConfirm'
 ])->name('adminLoginConfirm');
