@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('mobile')->nullable();
             $table->string('userId')->nullable();
             $table->string('pass')->nullable();
+            $table->string('status')->nullable();
+            $table->string('adminType')->nullable();
             $table->timestamps();
         });
     }

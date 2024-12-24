@@ -19,6 +19,10 @@ Route::get('/configuration',[
     'configurationView'
 ])->name('configurationView');
 
+Route::post('/save/configuration',[
+    cofigurationController::class, //save configuration
+    'saveConfiguration'
+])->name('saveConfiguration');
 //configuration end
 
 //admission

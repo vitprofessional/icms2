@@ -35,6 +35,16 @@
     </head>
 <body>
     <div class="row form-box">
+    @if(session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{session()->get('error')}}
+                    </div>
+                @endif
+                @if(session()->has('success'))
+                    <div class="alert alert-success">
+                        {{session()->get('success')}}
+                    </div>
+                @endif
         <div class="col-12  text-center border-0">
             <div class="">
                 <div id="btn"></div>
@@ -42,7 +52,9 @@
             </div>
         </div>
         <div class="col-12 card card-body  rounded-0 border-0">
-            <form>
+
+            <form method="POST" class=" form" action="{{route('saveConfiguration')}}">
+                @csrf
                 <div class="mb-2">
                     <label for="institute" class="form-label">Institutaion Name</label>
                     <input type="text" class="form-control input-field" id="institute" name="institute" placeholder="enter the Institutaion Name " required />
@@ -66,10 +78,6 @@
                 <div class="mb-2">
                     <label for="pass" class="form-label">Password</label>
                     <input type="password" class="form-control input-field" id="pass" name="pass" placeholder="generate won password" required />
-                </div>
-                <div class="mb-2 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                    <label class="form-check-label span" for="exampleCheck1">Remember Password</label>
                 </div>
                 <div class="text-center mt-4">
                 <button type="submit" class="btn btn-sm btn-info  text-white">Log in</button>
