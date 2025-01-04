@@ -108,7 +108,6 @@
                         @endforeach
                     @endif
                 </select>
-                    
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">
                 <label for="class" class="form-lavel">Class </label>

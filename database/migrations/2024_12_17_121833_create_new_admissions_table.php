@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('new_admissions', function (Blueprint $table) {
             $table->id();
+            $table->integer('stdId')->nullable();
             $table->string('fullName')->nullable();
             $table->string('sureName')->nullable();
             $table->string('father')->nullable();

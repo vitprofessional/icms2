@@ -22,20 +22,18 @@ class tuitionController extends Controller
     }
 
     // get tution admission student on form page
-    public function getStudentForTutionFee($class,$session,$section){
-        $studentList = newAdmission::where(['className'=>$class,'sessName'=>$session,'sectionName'=>$section])->get();
-        return view('tuition.getTutionStudentList',['studentList'=>$studentList]);
+    public function getStudentForTutionFee($stdId){
+        $studentList = newAdmission::where(['stdId'=>$stdId])->first();
+        // return count($studentList);
+        return view('tuition.getTutionStudentList',['studentData'=>$studentList]);
     }
 
     public function saveTuitionfee(Request $requ){
         $saveData = new tuitionFee();
-         
-        $saveData->session         = $requ->session;
-        $saveData->className       = $requ->className;
-        $saveData->section         = $requ->section;
-        $saveData->stdName         = $requ->stdName;
-        $saveData->rollNumber      = $requ->rollNumber;
-        $saveData->amount          = $requ->amount;
+
+        $saveData->stdId      = $requ->stdId;
+        $saveData->feesType    = $requ->feesType;
+        $saveData->amount     = $requ->amount;
 
 
         if($saveData->save()):
@@ -94,5 +92,12 @@ class tuitionController extends Controller
         endif;
     
      }
+
+     //report
+     
+    public function tuitionReport($id){
+        $singleData = tuitionFee::find($id);
+        return view('tuition.report',['singleView'=>$singleData]);
+    }
 
 }

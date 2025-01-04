@@ -29,7 +29,7 @@
         <!-- font awesome -->
         <script src="https://kit.fontawesome.com/32dcd4a478.js" crossorigin="anonymous"></script>
         <!-- custom css -->
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="{{asset('/public/admin/default/')}}/assets/css/style.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -258,7 +258,7 @@
                             <!-- end Dashboard Menu -->
                             <li class="nav-item">
                                 <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
-                                <i class="fa-regular fa-money-bills"></i> <span data-key="t-apps">Tuition Fees</span>
+                                <i class="fa-regular fa-money-bills"></i> <span data-key="t-apps">Student Fees</span>
                                 </a>
                                 <div class="collapse menu-dropdown" id="sidebarApps">
                                     <ul class="nav nav-sm flex-column">
@@ -266,7 +266,7 @@
                                             <a href="{{route('tuitionFee')}}" class="nav-link" data-key="t-chat"> Collect Fees </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('tuitionFeeList')}}" class="nav-link"> <span data-key="t-file-manager">Check Data</span></a>
+                                            <a href="{{route('tuitionFeeList')}}" class="nav-link"> <span data-key="t-file-manager">Get Data</span></a>
                                         </li>
                                     </ul>
                                 </div>

@@ -50,7 +50,7 @@ Route::get('/student-list',[
 Route::post('/save/student',[
     admissionController::class,
     'saveAdmission'
-])->name('saveAdmission');
+ ])->name('saveAdmission');
 
 Route::get('/view-admission/{id}',[
     admissionController::class,
@@ -115,7 +115,7 @@ Route::get('/delete-calculas-data/{id}',[
 //cashCalculas end
 
 //Tuition str
-Route::get('/getStudentForTutionFee/{class}/{session}/{section}',[
+Route::get('/getStudentForTutionFee/{stdId}',[
     tuitionController::class,
     'getStudentForTutionFee'
 ])->name('getStudentForTutionFee');
@@ -154,6 +154,11 @@ Route::get('/edit-tuition-fee/{id}',[
     tuitionController::class,      // delete tuition free
     'dltTuitionFee'
 ])->name('dltTuitionFee');
+
+Route::get('/tuition-repot-generate/{id}',[
+    tuitionController::class,   // tuition free tuitionReport
+    'tuitionReport'
+])->name('tuitionReport');
 //Tuition end
 
 //individual part str

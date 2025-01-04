@@ -49,6 +49,19 @@ class admissionController extends Controller
             $data->gurdianMobile    = $requ->gurdianPhone;
             $data->relationGurdian  = $requ->relationWithStd;
             $data->status           = "newProfile";
+
+            
+            $getId = newAdmission::latest()->first();
+            if(empty($getId)):
+                $uniqueId = 1;
+            else:
+                $uniqueId = $getId->id+1;
+            endif;
+            $newId = str_pad($uniqueId, 6, "0", STR_PAD_LEFT);
+            $stdId = date('Y').$newId;
+
+            $data->stdId = $stdId;
+
             if(!empty($requ->avatar)):
                 $stdAvatar = $requ->file('avatar');
                 $newAvatar = rand().date('Ymd').'.'.$stdAvatar->getClientOriginalExtension();
