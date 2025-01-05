@@ -294,7 +294,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link menu-link" href="{{route('classForm')}}" role="button">
-                                <i class="fa-regular fa-bars"></i> <span data-key="t-class">Add Classf</span>
+                                <i class="fa-regular fa-bars"></i> <span data-key="t-class">Add Class</span>
                                 </a>
                             </li>
                             <li class="nav-item">
