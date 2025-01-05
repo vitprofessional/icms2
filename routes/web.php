@@ -246,4 +246,32 @@ Route::get('/add-class',[
     individualController::class,      // delete class
     'deleteSection'
 ])->name('deleteSection');
+
+//Fees str
+Route::get('/add-fees',[
+    individualController::class, //add Fees
+    'feesForm'
+   ])->name('feesForm');
+
+   Route::get('/edit-fees-data/{id}',[
+    individualController::class, //edit Fees
+    'editFees'
+   ])->name('editFees');
+
+   Route::post('/update-fees',[
+    individualController::class, //update Fees
+    'updateFees'
+   ])->name('updateFees');
+
+   
+   Route::post('/save-fees',[
+    individualController::class, //add Fees
+    'saveFees'
+   ])->name('saveFees');
+
+   Route::get('/delete-fees-data/{id}',[
+    individualController::class,      // delete Fees
+    'deleteFees'
+])->name('deleteFees');
+//Fees end
 //individual part end

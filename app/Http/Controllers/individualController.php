@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\sessionManage;
 use App\Models\classManage;
 use App\Models\sectionManage;
+use App\Models\feesManage;
 class individualController extends Controller
 {
     //add session
@@ -190,6 +191,70 @@ class individualController extends Controller
     //delelte section
     public function deleteSection($id){
         $dltData = sectionManage::find($id);
+
+        if($dltData->delete()):
+            return back()->with('success','data Delete successfully');
+        else:
+            return back()->with('error','data deletion failed');
+        endif;
+    
+     }
+
+
+     //add fees
+    public function feesForm(){
+        $feesLi = feesManage::all();
+        return view ('individualPart.feesForm',['feesList'=>$feesLi]); 
+    }
+    //save fees 
+    public function saveFees(Request $requ){
+        $chkData = feesManage::where(['feesName'=>$requ->feesName])->get();
+
+        if(!empty($chkData) && count($chkData)>0):
+            return back()->with('error','Data entry failed');
+        else:
+            $savedata = new feesManage();
+            
+            $savedata ->feesName = $requ->feesName;
+
+            if($savedata->save()):
+                return back()->with('success','Data saved successfully');
+            else:
+                return back()->with('error','An error ocoured! please try later');
+            endif;
+        endif;
+        
+    }
+
+    //edit fees
+    public function editFess($id){
+        $feesData = feesManage::find($id);
+        return view('individualPart.editFees',['editData'=>$feesData]);
+    }
+
+    //update fees 
+    public function updateFees(Request $requ){
+        $chkData = feesManage::where(['feesName'=>$requ->feesName])->get();
+
+        if(!empty($chkData) && count($chkData)>0):
+            return back()->with('error','Data entry failed');
+        else:
+            $updateData =  feesManage::find($requ->feesId);
+            $updateData ->feesName = $requ->feesName;
+
+            if($updateData->save()):
+                return redirect(route('feesForm'))->with("success",'update successfully');
+            else:
+                return back()->with("error",'Data update failed');
+            endif;
+        endif;
+    
+    }
+    
+    
+    //delelte session
+    public function deleteFees($id){
+        $dltData = feesManage::find($id);
 
         if($dltData->delete()):
             return back()->with('success','data Delete successfully');

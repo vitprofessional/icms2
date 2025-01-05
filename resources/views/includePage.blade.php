@@ -294,12 +294,17 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link menu-link" href="{{route('classForm')}}" role="button">
-                                <i class="fa-regular fa-bars"></i> <span data-key="t-class">Add Class</span>
+                                <i class="fa-regular fa-bars"></i> <span data-key="t-class">Add Classf</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link menu-link" href="{{route('sectionForm')}}" role="button">
                                 <i class="fa-regular fa-bars"></i> <span data-key="t-section">Add Section</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu-link" href="{{route('feesForm')}}" role="button">
+                                <i class="fa-regular fa-bars"></i> <span data-key="t-fees">Add Fees</span>
                                 </a>
                             </li>
                             <!-- end Dashboard Menu -->
