@@ -35,6 +35,13 @@ Route::post('/save/configuration',[
     'saveConfiguration'
 ])->name('saveConfiguration');
 
+
+
+Route::get('/logout',[
+    FrontEnd::class,
+    'logout'
+])->name('logout');
+
 //configuration end
 Route::middleware(['adminGuard'])->group(function(){
     //admission

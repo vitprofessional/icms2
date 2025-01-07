@@ -172,7 +172,7 @@
                                 </div>
                             </div>
                             <div class=" ms-sm-3 header-item">
-                                <a class="align-middle" href="#">
+                                <a class="align-middle" href="{{ route('logout') }}">
                                     <i class="fa-solid fa-left-from-bracket fa-flip-horizontal fa-xl"></i> 
                                     <span class="" data-key="t-logout">Logout</span>
                                 </a>
