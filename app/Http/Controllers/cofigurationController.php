@@ -22,6 +22,9 @@ class cofigurationController extends Controller
         if(!empty($chk) && count(array($chk))>0):
             $pass = Hash::check($requ->pass,$chk->pass);
             if($pass):
+                // return $chk->adminType;
+                $requ->session()->regenerate();
+                $requ->session()->put('adminSession', $chk->id);
                 return redirect(route('newAdmission'));
             else:
                 return back()->with('error','Wrong password provided');

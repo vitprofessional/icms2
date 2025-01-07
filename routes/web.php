@@ -8,6 +8,7 @@ use App\Http\Controllers\admissionController;
 use App\Http\Controllers\individualController;
 use App\Http\Controllers\tuitionController;
 use App\Http\Controllers\cofigurationController;
+use App\Http\Middleware\adminGuard;
 
 Route::get('/', function () {
     return view('admin.home');
@@ -35,248 +36,249 @@ Route::post('/save/configuration',[
 ])->name('saveConfiguration');
 
 //configuration end
+Route::middleware(['adminGuard'])->group(function(){
+    //admission
+    Route::get('/new-admission',[
+        admissionController::class,
+        'newAdmission'
+    ])->name('newAdmission');
+    
+    Route::get('/student-list',[
+        admissionController::class,
+        'studentList'
+    ])->name('studentList');
 
-//admission
-Route::get('/new-admission',[
-    admissionController::class,
-    'newAdmission'
-])->name('newAdmission');
- 
-Route::get('/student-list',[
-    admissionController::class,
-    'studentList'
-])->name('studentList');
+    Route::post('/save/student',[
+        admissionController::class,
+        'saveAdmission'
+    ])->name('saveAdmission');
 
-Route::post('/save/student',[
-    admissionController::class,
-    'saveAdmission'
- ])->name('saveAdmission');
+    Route::get('/view-admission/{id}',[
+        admissionController::class,
+        'viewAdmission'
+    ])->name('viewAdmission');
 
-Route::get('/view-admission/{id}',[
-    admissionController::class,
-    'viewAdmission'
-])->name('viewAdmission');
+    Route::get('/edit-admission/{id}',[
+        admissionController::class,
+        'editAdmission'
+    ])->name('editAdmission');
 
-Route::get('/edit-admission/{id}',[
-    admissionController::class,
-    'editAdmission'
-])->name('editAdmission');
-
-Route::post('/update-admission',[
-    admissionController::class,
-    'updateAdmission'
-])->name('updateAdmission');
-
-
-Route::get('/delete-admission/{id}',[
-    admissionController::class,
-    'dltAdmission'
-])->name('dltAdmission');
-//admission
+    Route::post('/update-admission',[
+        admissionController::class,
+        'updateAdmission'
+    ])->name('updateAdmission');
 
 
-
-//cashCalculas str
-Route::get('/cash-calculas-from',[
-    cashCalculasController::class,    //cashCalculas main page
-    'cashCalculasView'
-])->name('cashCalculasView');
-
-Route::get('/get-report',[
-    cashCalculasController::class,    //reportList page
-    'reportListView'
-])->name('reportListView');
-
-Route::get('/single-report/{id}',[
-    cashCalculasController::class,    // report single page
-    'singleView'
-])->name('singleView');
+    Route::get('/delete-admission/{id}',[
+        admissionController::class,
+        'dltAdmission'
+    ])->name('dltAdmission');
+    //admission
 
 
-Route::post('/save-cash-calculas',[
-    cashCalculasController::class,    //saveCashCalculas brackhand
-    'saveCashCalculas'
-])->name('saveCashCalculas');
 
-Route::get('/edit-cash-calculas/{id}',[
-    cashCalculasController::class,     // edit calculas 
-    'editCashCalculas'
-])->name('editCashCalculas');
+    //cashCalculas str
+    Route::get('/cash-calculas-from',[
+        cashCalculasController::class,    //cashCalculas main page
+        'cashCalculasView'
+    ])->name('cashCalculasView');
 
-Route::post('/update-cash-calculas',[
-    cashCalculasController::class,   //update calculas
-    'updateCashCalculas'
-])->name('updateCashCalculas');
+    Route::get('/get-report',[
+        cashCalculasController::class,    //reportList page
+        'reportListView'
+    ])->name('reportListView');
 
-Route::get('/delete-calculas-data/{id}',[
-    cashCalculasController::class,      // delete calculas
-    'dltCalculasData'
-])->name('dltCalculasData');
-
-Route::get('/calculas-repot-generate/{id}',[
-    cashCalculasController::class,   // calculas Report
-    'cashReport'
-])->name('cashReport');
-//cashCalculas end
-
-//Tuition str
-Route::get('/getStudentForTutionFee/{stdId}',[
-    tuitionController::class,
-    'getStudentForTutionFee'
-])->name('getStudentForTutionFee');
-
-Route::get('/add-tuition-fee',[
-    tuitionController::class,   //add tuition free
-    'tuitionFee'
-])->name('tuitionFee');
-
-Route::post('/save-tuition-fee',[
-    tuitionController::class,
-    'saveTuitionfee'
-])->name('saveTuitionfee');
-
-Route::get('/tuition-fee-list',[
-    tuitionController::class,   // tuition free list
-    'tuitionFeeList'
-])->name('tuitionFeeList');
-
-Route::get('/tuition-fee-view/{id}',[
-    tuitionController::class,   // tuition free view
-    'tuitionFeeView'
-])->name('tuitionFeeView');
-
-Route::get('/edit-tuition-fee/{id}',[
-    tuitionController::class, //edit tuition free
-    'editTuitionFee'
-   ])->name('editTuitionFee');
-
-   Route::post('/update-tuition-fee',[
-    tuitionController::class, //update tuition free
-    'updateTuitionFee'
-   ])->name('updateTuitionFee');
-
-   Route::get('/delete-tuition-fee/{id}',[
-    tuitionController::class,      // delete tuition free
-    'dltTuitionFee'
-])->name('dltTuitionFee');
-
-Route::get('/tuition-repot-generate/{id}',[
-    tuitionController::class,   // tuition free tuitionReport
-    'tuitionReport'
-])->name('tuitionReport');
-//Tuition end
-
-//individual part str
-
-//session str
-Route::get('/add-session',[
- individualController::class, //add session
- 'sessionForm'
-])->name('sessionForm');
-
-Route::post('/save-session',[
-    individualController::class, //save session
-    'saveSession'
-   ])->name('saveSession');
-
-Route::get('/edit-session-data/{id}',[
-    individualController::class, //edit session
-    'editSession'
-    ])->name('editSession');
-
-Route::post('/update-session',[
-    individualController::class, //update session
-    'updateSession'
-])->name('updateSession');
+    Route::get('/single-report/{id}',[
+        cashCalculasController::class,    // report single page
+        'singleView'
+    ])->name('singleView');
 
 
-Route::get('/delete-session-data/{id}',[
-    individualController::class,      // delete session
-    'deleteSession'
-])->name('deleteSession');
+    Route::post('/save-cash-calculas',[
+        cashCalculasController::class,    //saveCashCalculas brackhand
+        'saveCashCalculas'
+    ])->name('saveCashCalculas');
 
-//session end
+    Route::get('/edit-cash-calculas/{id}',[
+        cashCalculasController::class,     // edit calculas 
+        'editCashCalculas'
+    ])->name('editCashCalculas');
 
-//class str
-Route::get('/add-class',[
-    individualController::class, //add class
-    'classForm'
-   ])->name('classForm');
+    Route::post('/update-cash-calculas',[
+        cashCalculasController::class,   //update calculas
+        'updateCashCalculas'
+    ])->name('updateCashCalculas');
 
-   Route::post('/save-class',[
-    individualController::class, //save class
-    'saveClass'
-   ])->name('saveClass');
+    Route::get('/delete-calculas-data/{id}',[
+        cashCalculasController::class,      // delete calculas
+        'dltCalculasData'
+    ])->name('dltCalculasData');
 
-   Route::get('/edit-data/{id}',[
-    individualController::class, //edit class
-    'editClass'
-   ])->name('editClass');
+    Route::get('/calculas-repot-generate/{id}',[
+        cashCalculasController::class,   // calculas Report
+        'cashReport'
+    ])->name('cashReport');
+    //cashCalculas end
 
-   Route::post('/update-class',[
-    individualController::class, //update class
-    'updateClass'
-   ])->name('updateClass');
+    //Tuition str
+    Route::get('/getStudentForTutionFee/{stdId}',[
+        tuitionController::class,
+        'getStudentForTutionFee'
+    ])->name('getStudentForTutionFee');
 
-   Route::get('/delete-class-data/{id}',[
-    individualController::class,      // delete class
-    'deleteClass'
-])->name('deleteClass');
+    Route::get('/add-tuition-fee',[
+        tuitionController::class,   //add tuition free
+        'tuitionFee'
+    ])->name('tuitionFee');
 
-//class end
+    Route::post('/save-tuition-fee',[
+        tuitionController::class,
+        'saveTuitionfee'
+    ])->name('saveTuitionfee');
 
-//section str
-   Route::get('/add-section',[
-    individualController::class, //add section
-    'sectionForm'
-   ])->name('sectionForm');
+    Route::get('/tuition-fee-list',[
+        tuitionController::class,   // tuition free list
+        'tuitionFeeList'
+    ])->name('tuitionFeeList');
 
-   Route::get('/edit-section-data/{id}',[
-    individualController::class, //edit section
-    'editSection'
-   ])->name('editSection');
+    Route::get('/tuition-fee-view/{id}',[
+        tuitionController::class,   // tuition free view
+        'tuitionFeeView'
+    ])->name('tuitionFeeView');
 
-   Route::post('/update-section',[
-    individualController::class, //update Section
-    'updateSection'
-   ])->name('updateSection');
+    Route::get('/edit-tuition-fee/{id}',[
+        tuitionController::class, //edit tuition free
+        'editTuitionFee'
+    ])->name('editTuitionFee');
 
-   //section end
-   Route::post('/save-section',[
-    individualController::class, //add section
-    'saveSection'
-   ])->name('saveSection');
+    Route::post('/update-tuition-fee',[
+        tuitionController::class, //update tuition free
+        'updateTuitionFee'
+    ])->name('updateTuitionFee');
 
-   Route::get('/delete-section-data/{id}',[
-    individualController::class,      // delete class
-    'deleteSection'
-])->name('deleteSection');
+    Route::get('/delete-tuition-fee/{id}',[
+        tuitionController::class,      // delete tuition free
+        'dltTuitionFee'
+    ])->name('dltTuitionFee');
 
-//Fees str
-Route::get('/add-fees',[
-    individualController::class, //add Fees
-    'feesForm'
-   ])->name('feesForm');
+    Route::get('/tuition-repot-generate/{id}',[
+        tuitionController::class,   // tuition free tuitionReport
+        'tuitionReport'
+    ])->name('tuitionReport');
+    //Tuition end
 
-   Route::get('/edit-fees-data/{id}',[
-    individualController::class, //edit Fees
-    'editFees'
-   ])->name('editFees');
+    //individual part str
 
-   Route::post('/update-fees',[
-    individualController::class, //update Fees
-    'updateFees'
-   ])->name('updateFees');
+    //session str
+    Route::get('/add-session',[
+    individualController::class, //add session
+    'sessionForm'
+    ])->name('sessionForm');
 
-   
-   Route::post('/save-fees',[
-    individualController::class, //add Fees
-    'saveFees'
-   ])->name('saveFees');
+    Route::post('/save-session',[
+        individualController::class, //save session
+        'saveSession'
+    ])->name('saveSession');
 
-   Route::get('/delete-fees-data/{id}',[
-    individualController::class,      // delete Fees
-    'deleteFees'
-])->name('deleteFees');
-//Fees end
-//individual part end
+    Route::get('/edit-session-data/{id}',[
+        individualController::class, //edit session
+        'editSession'
+        ])->name('editSession');
+
+    Route::post('/update-session',[
+        individualController::class, //update session
+        'updateSession'
+    ])->name('updateSession');
+
+
+    Route::get('/delete-session-data/{id}',[
+        individualController::class,      // delete session
+        'deleteSession'
+    ])->name('deleteSession');
+
+    //session end
+
+    //class str
+    Route::get('/add-class',[
+        individualController::class, //add class
+        'classForm'
+    ])->name('classForm');
+
+    Route::post('/save-class',[
+        individualController::class, //save class
+        'saveClass'
+    ])->name('saveClass');
+
+    Route::get('/edit-data/{id}',[
+        individualController::class, //edit class
+        'editClass'
+    ])->name('editClass');
+
+    Route::post('/update-class',[
+        individualController::class, //update class
+        'updateClass'
+    ])->name('updateClass');
+
+    Route::get('/delete-class-data/{id}',[
+        individualController::class,      // delete class
+        'deleteClass'
+    ])->name('deleteClass');
+
+    //class end
+
+    //section str
+    Route::get('/add-section',[
+        individualController::class, //add section
+        'sectionForm'
+    ])->name('sectionForm');
+
+    Route::get('/edit-section-data/{id}',[
+        individualController::class, //edit section
+        'editSection'
+    ])->name('editSection');
+
+    Route::post('/update-section',[
+        individualController::class, //update Section
+        'updateSection'
+    ])->name('updateSection');
+
+    //section end
+    Route::post('/save-section',[
+        individualController::class, //add section
+        'saveSection'
+    ])->name('saveSection');
+
+    Route::get('/delete-section-data/{id}',[
+        individualController::class,      // delete class
+        'deleteSection'
+    ])->name('deleteSection');
+
+    //Fees str
+    Route::get('/add-fees',[
+        individualController::class, //add Fees
+        'feesForm'
+    ])->name('feesForm');
+
+    Route::get('/edit-fees-data/{id}',[
+        individualController::class, //edit Fees
+        'editFees'
+    ])->name('editFees');
+
+    Route::post('/update-fees',[
+        individualController::class, //update Fees
+        'updateFees'
+    ])->name('updateFees');
+
+    
+    Route::post('/save-fees',[
+        individualController::class, //add Fees
+        'saveFees'
+    ])->name('saveFees');
+
+    Route::get('/delete-fees-data/{id}',[
+        individualController::class,      // delete Fees
+        'deleteFees'
+    ])->name('deleteFees');
+    //Fees end
+    //individual part end    
+});

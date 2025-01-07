@@ -25,6 +25,10 @@
                         <button class="btn btn-danger btn-color btn-sm" type="reset">Reset</button>
                     </div>
                 </form>
+                @php 
+                    $config = \App\Models\configurationManage::find(Session::get('adminSession'));
+                @endphp
+                {{ $config->institute }}
             </div>
         </div>
     </div>
