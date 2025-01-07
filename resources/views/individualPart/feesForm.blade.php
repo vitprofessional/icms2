@@ -16,8 +16,8 @@
                 <form method="POST" class="card-body form" action="{{route('saveFees')}}">
                     @csrf
                     <div class="mb-2">
-                        <label for="fessName" class="form-label ">Fees Entry</label>
-                        <input type="text" class="form-control form-control-sm" id="fessName" name="fessName" placeholder="" required>
+                        <label for="feesName" class="form-label ">Fees Entry</label>
+                        <input type="text" class="form-control form-control-sm" id="feesName" name="feesName" placeholder="" required>
                         </select>
                     </div>
                     <div class=" mx-auto gap-2 mt-5">
@@ -45,7 +45,7 @@
                 @if(!empty($feesList) && count($feesList)>0)
                     @foreach($feesList as $fd)
                     <tr>
-                        <td>{{$fd->fessName}}</td>
+                        <td>{{$fd->feesName}}</td>
                     <td>
                             <a href="{{route('editFees',['id'=>$fd->id])}}"><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
                             <a onclick="confirm('are you sure')" href="{{route('deleteFees',['id'=>$fd->id])}}"><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>

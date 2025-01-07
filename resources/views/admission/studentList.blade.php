@@ -5,6 +5,7 @@
     <table class=" table table-striped table-hover text-center shadow-lg p-3 rounded" >
                 <thead class="table-info">
                     <tr>
+                    <th scope="col">Student Id</th>
                     <th scope="col">Full Name</th>
                     <th scope="col">Session</th>
                     <th scope="col">Class</th>
@@ -26,6 +27,7 @@
                     $sectionData= \App\Models\sectionManage::find($std->sectionName);
                     @endphp
                     <tr>
+                    <td>{{$std->stdId}}</td>
                     <td>{{$std->fullName}}</td>
                     @if(!empty($sessionData))
                     <td>{{$sessionData->session}}</td>

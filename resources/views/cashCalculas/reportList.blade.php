@@ -31,6 +31,7 @@
                         <td>{{$d->amount}}</td>
                         <td>{{$d->transaction}}</td>
                         <td>
+                            <a href="{{route('cashReport',['id'=>$d->id])}}"><i class="fa-duotone fa-solid fa-print mx-2" style="color:rgb(0 0 0 );"></i></a>
                             <a href="{{route('singleView',['id'=>$d->id])}}"><i class="fa-solid fa-eye mx-2" style="color:rgb(35 170 211);"></i></a>
                             <a href="{{route('editCashCalculas',['id'=> $d->id])}}"><i class="fa-solid fa-pen-to-square mx-2" style="color: #4125b1;"></i></a>
                             <a onclick="confirm('are you sure')" href="{{route('dltCalculasData',['id'=> $d->id])}}"><i class="fa-solid fa-trash mx-2" style="color: #c10b26;"></i></a>

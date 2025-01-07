@@ -23,7 +23,7 @@
                     </div>
                     <div class=" mx-auto gap-2 mt-5">
                         <a href="{{route('feesForm')}}" class="btn btn-success btn-color btn-sm" type="submit">Back</a>
-                        <button class="btn btn-primary btn-color btn-sm" type="submit">Save</button>
+                        <button class="btn btn-primary btn-color btn-sm" type="submit">Update</button>
                     </div>
                 </form>
             </div>

@@ -10,7 +10,7 @@ class cofigurationController extends Controller
 {
     public function adminLogin(){
         $config = configurationManage::all();
-        if(!empty($config) && count(array($config))>0):
+        if(!$config->isEmpty()):
             return view('setting.adminLogin');
         else:
             return  redirect(route('configurationView'))->with('error','Please install your server to manage the system');

@@ -8,6 +8,7 @@ use App\Models\classManage;
 use App\Models\sessionManage;
 use App\Models\tuitionFee;
 use App\Models\newAdmission;
+use App\Models\feesManager;
 
 
 
@@ -18,21 +19,22 @@ class tuitionController extends Controller
         $sectionDetails= sectionManage::all();
         $classDetails= classManage::all();
         $sessionDetails = sessionManage::all();
-        return view('tuition.tuitionFeesFrom',['sectionData'=>$sectionDetails,'classData'=>$classDetails,'sessionData'=>$sessionDetails]);
+        return view('tuition.tuitionFeesFrom',['sectionData'=>$sectionDetails,'classData'=>$classDetails,'sessionData'=>$sessionDetails,]);
     }
 
     // get tution admission student on form page
     public function getStudentForTutionFee($stdId){
         $studentList = newAdmission::where(['stdId'=>$stdId])->first();
+        $feesDetails = feesManager::all();
         // return count($studentList);
-        return view('tuition.getTutionStudentList',['studentData'=>$studentList]);
+        return view('tuition.getTutionStudentList',['studentData'=>$studentList,'feesData'=>$feesDetails]);
     }
 
     public function saveTuitionfee(Request $requ){
         $saveData = new tuitionFee();
 
         $saveData->stdId      = $requ->stdId;
-        $saveData->feesType    = $requ->feesType;
+        $saveData->feesType   = $requ->feesType;
         $saveData->amount     = $requ->amount;
 
 

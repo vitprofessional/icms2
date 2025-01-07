@@ -112,6 +112,11 @@ Route::get('/delete-calculas-data/{id}',[
     cashCalculasController::class,      // delete calculas
     'dltCalculasData'
 ])->name('dltCalculasData');
+
+Route::get('/calculas-repot-generate/{id}',[
+    cashCalculasController::class,   // calculas Report
+    'cashReport'
+])->name('cashReport');
 //cashCalculas end
 
 //Tuition str

@@ -70,4 +70,10 @@ class cashCalculasController extends Controller
     
      }
 
+     //report recipit
+     public function cashReport($id){
+        $singleData = cashManage::find($id);
+        return view('cashCalculas.report',['singleView'=>$singleData]);
+    }
+
 }

@@ -25,10 +25,12 @@
                 <div class="col-md-6 mb-2">
                     <label for="feesType" class="form-label">Purpose/Note</label>
                     <select name="feesType" id="" class="form-control">
-                        <option>Addmission Fee</option>
-                        <option>Tution Fee</option>
-                        <option>Exam Fee</option>
-                        <option>Other</option>
+                        <option>-select-</option>
+                    @if(!empty($feesData) && count($feesData)>0)
+                        @foreach($feesData as $fd)
+                        <option value="{{ $fd->id }}">{{ $fd->feesName}}</option>
+                        @endforeach
+                    @endif  
                     </select>
                 </div>
                 <div class="col-md-6 mb-2">

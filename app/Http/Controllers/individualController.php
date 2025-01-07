@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\sessionManage;
 use App\Models\classManage;
 use App\Models\sectionManage;
-use App\Models\feesManage;
+use App\Models\feesManager;
 class individualController extends Controller
 {
     //add session
@@ -203,17 +203,17 @@ class individualController extends Controller
 
      //add fees
     public function feesForm(){
-        $feesLi = feesManage::all();
+        $feesLi = feesManager::all();
         return view ('individualPart.feesForm',['feesList'=>$feesLi]); 
     }
     //save fees 
     public function saveFees(Request $requ){
-        $chkData = feesManage::where(['feesName'=>$requ->feesName])->get();
+        $chkData = feesManager::where(['feesName'=>$requ->feesName])->get();
 
         if(!empty($chkData) && count($chkData)>0):
             return back()->with('error','Data entry failed');
         else:
-            $savedata = new feesManage();
+            $savedata = new feesManager();
             
             $savedata ->feesName = $requ->feesName;
 
@@ -227,19 +227,19 @@ class individualController extends Controller
     }
 
     //edit fees
-    public function editFess($id){
-        $feesData = feesManage::find($id);
+    public function editFees($id){
+        $feesData = feesManager::find($id);
         return view('individualPart.editFees',['editData'=>$feesData]);
     }
 
     //update fees 
     public function updateFees(Request $requ){
-        $chkData = feesManage::where(['feesName'=>$requ->feesName])->get();
+        $chkData = feesManager::where(['feesName'=>$requ->feesName])->get();
 
         if(!empty($chkData) && count($chkData)>0):
             return back()->with('error','Data entry failed');
         else:
-            $updateData =  feesManage::find($requ->feesId);
+            $updateData =  feesManager::find($requ->feesId);
             $updateData ->feesName = $requ->feesName;
 
             if($updateData->save()):
@@ -252,9 +252,9 @@ class individualController extends Controller
     }
     
     
-    //delelte session
+    //delelte fee
     public function deleteFees($id){
-        $dltData = feesManage::find($id);
+        $dltData = feesManager::find($id);
 
         if($dltData->delete()):
             return back()->with('success','data Delete successfully');

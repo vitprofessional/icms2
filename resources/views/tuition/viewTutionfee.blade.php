@@ -23,7 +23,7 @@
                         <th scope="col">Session</th>
                         @if(!empty($sessionData))
                         <td>{{$sessionData->session}}</td>
-                        @else:
+                        @else
                         <td>-</td>
                         @endif
                      
@@ -36,7 +36,7 @@
                         <th scope="col">Class</th>
                         @if(!empty($sectionData))
                         <td>{{$classData->className}}</td>
-                        @else:
+                        @else
                         <td>-</td>
                         @endif
                     </tr>
@@ -44,7 +44,7 @@
                         <th scope="col">Section</th>
                         @if(!empty($sectionData))
                         <td>{{$sectionData->section}}</td>
-                        @else:
+                        @else
                         <td>-</td>
                         @endif
                     </tr>
