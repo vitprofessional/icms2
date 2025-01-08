@@ -102,4 +102,21 @@ class tuitionController extends Controller
         return view('tuition.report',['singleView'=>$singleData]);
     }
 
+    public function feesReport(){
+        return view('tuition.feesReport');
+    }
+
+    public function getFeesReport(Request $requ){
+        $from   = date('Y-m-d', strtotime($requ->fromDate));
+        $to     = date('Y-m-d', strtotime($requ->toDate));
+
+        $query = tuitionFee::where(['stdId'=>$requ->stdId])->whereBetween('created_at', [$from." 00:00:00",$to." 23:59:59"])->get();
+        $student = newAdmission::where(['stdId'=>$requ->stdId])->get()->first();
+        if(!$query->isEmpty()):
+            return view('tuition.generateStudentReport',['feesList'=>$query,'student'=>$student]);
+        else:
+            return back()->with('error','Sorry! No data found with your query');
+        endif;
+    }
+
 }

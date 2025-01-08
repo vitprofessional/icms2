@@ -173,6 +173,16 @@ Route::middleware(['adminGuard'])->group(function(){
         tuitionController::class,   // tuition free tuitionReport
         'tuitionReport'
     ])->name('tuitionReport');
+
+    Route::get('/student/fees/generate',[
+        tuitionController::class, //edit Fees
+        'feesReport'
+    ])->name('feesReport');
+
+    Route::post('/student/fees/generate/report',[
+        tuitionController::class, //update tuition free
+        'getFeesReport'
+    ])->name('getFeesReport');
     //Tuition end
 
     //individual part str
@@ -287,6 +297,7 @@ Route::middleware(['adminGuard'])->group(function(){
         individualController::class,      // delete Fees
         'deleteFees'
     ])->name('deleteFees');
+
     //Fees end
     //individual part end 
     

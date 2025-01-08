@@ -266,7 +266,10 @@
                                             <a href="{{route('tuitionFee')}}" class="nav-link" data-key="t-chat"> Collect Fees </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('tuitionFeeList')}}" class="nav-link"> <span data-key="t-file-manager">Get Data</span></a>
+                                            <a href="{{route('tuitionFeeList')}}" class="nav-link"> <span data-key="t-file-manager">Fees List</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('feesReport')}}" class="nav-link"> <span data-key="t-file-manager">Generate Report</span></a>
                                         </li>
                                     </ul>
                                 </div>
