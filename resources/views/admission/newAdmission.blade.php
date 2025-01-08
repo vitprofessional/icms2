@@ -37,9 +37,9 @@
                 <label for="gender" class="form-lavel">Gender </label>
                 <select class="form-select" name="gender" aria-label="Default select example"required>
                     <option selected>Gender select</option> 
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">other</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
             <div class="col-xl-3 col-lg-6 col-12 form-group mb-3">

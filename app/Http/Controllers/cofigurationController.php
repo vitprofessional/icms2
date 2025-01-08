@@ -71,4 +71,6 @@ class cofigurationController extends Controller
             endif;
         endif;
     }
+
+
 }

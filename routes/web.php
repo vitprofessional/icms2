@@ -8,6 +8,7 @@ use App\Http\Controllers\admissionController;
 use App\Http\Controllers\individualController;
 use App\Http\Controllers\tuitionController;
 use App\Http\Controllers\cofigurationController;
+use App\Http\Controllers\settingController;
 use App\Http\Middleware\adminGuard;
 
 Route::get('/', function () {
@@ -287,5 +288,13 @@ Route::middleware(['adminGuard'])->group(function(){
         'deleteFees'
     ])->name('deleteFees');
     //Fees end
-    //individual part end    
+    //individual part end 
+    
+    //setting str
+    //edit config
+    Route::get('/edit-config',[
+        settingController::class,      // delete Fees
+        'configurationEdit'
+    ])->name('configurationEdit');
+    //setting end
 });
