@@ -19,9 +19,16 @@ class cofigurationController extends Controller
 
     public function adminLoginConfirm(Request $requ){
         $chk = configurationManage::where(['userId'=>$requ->userId])->first();
+        // use find function
         if(!empty($chk) && count(array($chk))>0):
             $pass = Hash::check($requ->pass,$chk->pass);
             if($pass):
+                // if($requ->newPass==$requ->confirmPass):
+                //     $hashPass           = Hash::make($requ->newPass);
+                //     $chk->pass         = $hashPass;
+                //     $chk->save();
+                //     return back();
+                // endif;
                 // return $chk->adminType;
                 $requ->session()->regenerate();
                 $requ->session()->put('adminSession', $chk->id);
