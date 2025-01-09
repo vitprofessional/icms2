@@ -11,9 +11,6 @@ use App\Http\Controllers\cofigurationController;
 use App\Http\Controllers\settingController;
 use App\Http\Middleware\adminGuard;
 
-Route::get('/', function () {
-    return view('admin.home');
-});
 
 //cofiguration str
 Route::get('/admin/login',[
@@ -45,6 +42,11 @@ Route::get('/logout',[
 
 //configuration end
 Route::middleware(['adminGuard'])->group(function(){
+    
+Route::get('/', function () {
+    return view('admin.home');
+});
+
     //admission
     Route::get('/new-admission',[
         admissionController::class,
