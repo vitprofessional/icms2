@@ -18,7 +18,7 @@
         </div>
         <div class="row align-items-center">
             <div class="col-4">
-                <input type="text" class="form-control" placeholder="Enter student ID to collect tution fee" name="stdId" id="stdId">
+                <input type="text" class="form-control" placeholder="Enter student ID to collect tution fee" name="stdId" id="stdId" required >
             </div>
             <div class="col-2 text-center">
                 <a href="#" onclick="getStudent()" class="btn btn-success w-100">Get Data</a>
