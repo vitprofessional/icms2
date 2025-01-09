@@ -8,9 +8,10 @@
         </div>
             <table class=" table table-striped table-hover hadow-lg p-3 rounded" >
                @php
-                $sessionData= \App\Models\sessionManage::find($singleView->session);
-                $classData = \App\Models\classManage::find($singleView->className);
-                $sectionData = \App\Models\sectionManage::find($singleView->section);
+                $stdData = \App\Models\newAdmission::where(['stdId'=>$singleView->stdId])->first();
+                $sessionData= \App\Models\sessionManage::find($stdData->sessName);
+                $classData = \App\Models\classManage::find($stdData->className);
+                $sectionData = \App\Models\sectionManage::find($stdData->sectionName);
                @endphp
               
                 <tbody class="">
@@ -30,7 +31,7 @@
                     </tr>
                     <tr>
                         <th scope="col">Student Name</th>
-                        <td>{{$singleView->stdName}}</td>
+                        <td>{{$stdData->fullName}}</td>
                     </tr>
                     <tr>
                         <th scope="col">Class</th>
@@ -50,7 +51,7 @@
                     </tr>
                     <tr>
                         <th scope="col">Roll Number</th>
-                        <td>{{$singleView->rollNumber}}</td>
+                        <td>{{$stdData->rollNumber}}</td>
                     </tr>
                     <tr>
                         <th scope="col">Amount</th>

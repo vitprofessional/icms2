@@ -54,6 +54,8 @@ class tuitionController extends Controller
     public function tuitionFeeView($id){
         $singleData = tuitionFee::find($id);
         return view('tuition.viewTutionFee',['singleView'=>$singleData]);
+        // $stdData = newAdmission::where(['stdId'=>$singleData->stdId])->first();
+        // return view('tuition.viewTutionFee',['singleView'=>$singleData,'stdData'=>$stdData]);
     }
 
     //edit tiutionfee
